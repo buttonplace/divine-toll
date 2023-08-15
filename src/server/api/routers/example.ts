@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { Item } from "@prisma/client";
 
 export const exampleRouter = createTRPCRouter({
   hello: publicProcedure
@@ -10,6 +11,9 @@ export const exampleRouter = createTRPCRouter({
       };
     }),
   getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.example.findMany();
+    return ctx.prisma.item.findFirst({
+      where: { name: "Aberrant Fossil" },
+      include: { currentChaos: true },
+    });
   }),
 });

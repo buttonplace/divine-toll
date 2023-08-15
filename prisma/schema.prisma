@@ -1,73 +1,76 @@
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
+  provider = "mysql"
+  url = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-model ChaosPrice {
-  id               Int                     @id @default(autoincrement())
-  highNumerator    Float
-  highDenominator  Float
-  lowNumerator     Float
-  lowDenominator   Float
-  numerator        Float
-  denominator      Float
-  accounts         String
-  listingsUsed     Int
-  confidence       Int
-  averageStock     Int
-  averagePerSale   Int
-  updatedAt        DateTime                @default(now())
-  currentItemName  String?                 @unique
-  itemName         String
-  priceOrigin      ChaosPrice_priceOrigin?
-  pricingAlgorithm String?
-
-  @@index([itemName])
-}
-
-model DivinePrice {
-  id               Int                      @id @default(autoincrement())
-  highNumerator    Float
-  highDenominator  Float
-  lowNumerator     Float
-  lowDenominator   Float
-  numerator        Float
-  denominator      Float
-  accounts         String
-  listingsUsed     Int
-  confidence       Int
-  averageStock     Int
-  averagePerSale   Int
-  updatedAt        DateTime                 @default(now())
-  currentItemName  String?                  @unique
-  itemName         String
-  priceOrigin      DivinePrice_priceOrigin?
-  pricingAlgorithm String?
-
-  @@index([itemName])
-}
-
 model Item {
-  name            String   @id @unique
+  name            String        @id @unique
   icon            String
   type            String
   tradeId         String
   stashIndex      Int?
-  chaosUpdatedAt  DateTime @default(now())
-  divineUpdatedAt DateTime @default(now())
+  chaosUpdatedAt  DateTime      @default(now())
+  divineUpdatedAt DateTime      @default(now())
+  currentChaos    ChaosPrice?   @relation("currentChaos")
+  chaosHistory    ChaosPrice[]  @relation("chaosHistory")
+  currentDivine   DivinePrice?  @relation("currentDivine")
+  divineHistory   DivinePrice[] @relation("divineHistory")
+}
+model ChaosPrice {
+  id              Int      @id @default(autoincrement())
+  highNumerator   Float
+  highDenominator Float
+  lowNumerator    Float
+  lowDenominator  Float
+  numerator       Float
+  denominator     Float
+  accounts        String
+  listingsUsed    Int
+  confidence      Int
+  averageStock    Int
+  averagePerSale  Int
+  pricingAlgorithm String?
+  priceOrigin Origin?
+  updatedAt      DateTime @default(now())
+  currentItemName String?  @unique
+  currentItem     Item?    @relation("currentChaos", fields: [currentItemName], references: [name])
+  item            Item     @relation("chaosHistory", fields: [itemName], references: [name])
+  itemName        String
+    @@index([itemName])
+
 }
 
-enum DivinePrice_priceOrigin {
-  DIVINETOLL
-  POENINJA
+model DivinePrice {
+  id              Int      @id @default(autoincrement())
+  highNumerator   Float
+  highDenominator Float
+  lowNumerator    Float
+  lowDenominator  Float
+  numerator       Float
+  denominator     Float
+  accounts        String
+  listingsUsed    Int
+  confidence      Int
+  averageStock    Int
+  averagePerSale  Int
+  pricingAlgorithm String?
+  priceOrigin Origin?
+  updatedAt      DateTime @default(now())
+  currentItemName String?  @unique
+  currentItem     Item?    @relation("currentDivine", fields: [currentItemName], references: [name])
+  item            Item     @relation("divineHistory", fields: [itemName], references: [name])
+  itemName        String
+    @@index([itemName])
+
 }
 
-enum ChaosPrice_priceOrigin {
+enum Origin {
   DIVINETOLL
   POENINJA
 }
