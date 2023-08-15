@@ -4,6 +4,7 @@ import { api } from "~/utils/api";
 import LoadingSpinner from "~/components/loading";
 import { useState } from "react";
 import LoadingPage from "~/components/LoadingPage";
+import Header from "~/components/Header";
 
 export default function Home() {
   //const { scarabs, isLoaded: scarabsLoaded } = useState(false);
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <div>hello</div>
       <ul>
         {data ? (
