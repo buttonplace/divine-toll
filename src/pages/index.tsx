@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { api } from "~/utils/api";
 import LoadingSpinner from "~/components/loading";
-import { useState, useQuery } from "react";
+import { useState } from "react";
 import LoadingPage from "~/components/LoadingPage";
 
 export default function Home() {
