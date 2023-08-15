@@ -1,17 +1,73 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model ChaosPrice {
+  id               Int                     @id @default(autoincrement())
+  highNumerator    Float
+  highDenominator  Float
+  lowNumerator     Float
+  lowDenominator   Float
+  numerator        Float
+  denominator      Float
+  accounts         String
+  listingsUsed     Int
+  confidence       Int
+  averageStock     Int
+  averagePerSale   Int
+  updatedAt        DateTime                @default(now())
+  currentItemName  String?                 @unique
+  itemName         String
+  priceOrigin      ChaosPrice_priceOrigin?
+  pricingAlgorithm String?
+
+  @@index([itemName])
+}
+
+model DivinePrice {
+  id               Int                      @id @default(autoincrement())
+  highNumerator    Float
+  highDenominator  Float
+  lowNumerator     Float
+  lowDenominator   Float
+  numerator        Float
+  denominator      Float
+  accounts         String
+  listingsUsed     Int
+  confidence       Int
+  averageStock     Int
+  averagePerSale   Int
+  updatedAt        DateTime                 @default(now())
+  currentItemName  String?                  @unique
+  itemName         String
+  priceOrigin      DivinePrice_priceOrigin?
+  pricingAlgorithm String?
+
+  @@index([itemName])
+}
+
+model Item {
+  name            String   @id @unique
+  icon            String
+  type            String
+  tradeId         String
+  stashIndex      Int?
+  chaosUpdatedAt  DateTime @default(now())
+  divineUpdatedAt DateTime @default(now())
+}
+
+enum DivinePrice_priceOrigin {
+  DIVINETOLL
+  POENINJA
+}
+
+enum ChaosPrice_priceOrigin {
+  DIVINETOLL
+  POENINJA
 }
