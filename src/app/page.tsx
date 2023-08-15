@@ -2,7 +2,7 @@ import Image from 'next/image'
 import {useEffect,useState } from 'react';
 
 async function getData() {
-  const res = await fetch(process.env.API_URL + `/api/items/`, {
+  const res = await fetch(process.env.VERCEL_URL + `/api/items/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
