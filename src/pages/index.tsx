@@ -29,7 +29,12 @@ export default function Home() {
             );
           })
         ) : (
-          <LoadingSpinner />
+          <>
+            <LoadingSpinner />
+            <LoadingSpinner />
+            <LoadingSpinner />
+            <LoadingSpinner />
+          </>
         )}
       </ul>
     </>
