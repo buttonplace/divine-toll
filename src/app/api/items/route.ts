@@ -3,7 +3,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { FactionWithOwner } from './items';
 
 
-export async function GET() : Promise<FactionWithOwner[]> {
+export async function GET() {
     const prisma = new PrismaClient();
     const res = await prisma.item.findMany({
         where:{
@@ -16,6 +16,6 @@ export async function GET() : Promise<FactionWithOwner[]> {
     })
     
     
-    return res as FactionWithOwner[];
+    return NextResponse.json(res);
 }
 
