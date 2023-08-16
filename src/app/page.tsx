@@ -4,6 +4,11 @@ import { GET } from './api/items/route'
 import { Item, ChaosPrice } from '@prisma/client';
 import { FactionWithOwner } from './api/items/items';
 import ItemCard from './components/ItemCard';
+import {useEffect,useState } from 'react';
+import { GET } from './api/items/route'
+import { Item, ChaosPrice } from '@prisma/client';
+import { FactionWithOwner } from './api/items/items';
+import ItemCard from './components/ItemCard';
 
 
 export default async function Home() {
@@ -27,4 +32,5 @@ export default async function Home() {
     </>
   )
 }
+
 
