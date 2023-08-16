@@ -9,12 +9,12 @@ A Path of Exile Price Index
 - **Dual Currency Display:** Users can view prices in both Chaos orbs and Divine orbs. Both prices are built from real, separate, recent data, and neither is extrapolated from or linked (in any way!) to the other. If you don't know why this matters, read the **Explanation** at the bottom.
 
 ## Technologies Used
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![PlanetScale](https://img.shields.io/badge/planetscale-%23000000.svg?style=for-the-badge&logo=planetscale&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-- **NEXT.js:** The application is built on Next 13 (App Router) and utilizes SSR.
-
-- **Prisma:** Prisma is used for database interactions and management.
+- **Next:** The application is built on Next 13 (App Router) and utilizes SSR.
 
 - **Planetscale:** The application's database is hosted on Planetscale... for now. Divine Toll tracks approximately 500 items with countless(*) price history rows.
+- You know the rest.
 
 ## Contributing
 
@@ -44,7 +44,3 @@ In Path of Exile, there exists a notable pricing disparity between the Chaos and
 Some players exploit this discrepancy by purchasing mutiple items in small batches from other players. Although these trades look like bulk trades, the buyers are actually paying Chaos market prices, usually even less. Once they accumulate enough of one item, they sell them on the Divine market for profit.
 
 With Divine Toll, you can get an idea of the difference between the two markets so you can make a more informed decision before bulk selling your stash to a reseller. 
-
-## License
-
-This project is licensed under the MIT License.
