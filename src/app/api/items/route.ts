@@ -3,7 +3,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { FactionWithOwner } from './items';
 
 
-export async function getData() : Promise<FactionWithOwner[]> {
+export async function GET() : Promise<FactionWithOwner[]> {
     const prisma = new PrismaClient();
     const res = await prisma.item.findMany({
         where:{

@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import {useEffect,useState } from 'react';
-import { getData } from './api/items/route'
+import { GET } from './api/items/route'
 import { Item, ChaosPrice } from '@prisma/client';
 import { FactionWithOwner } from './api/items/items';
 
 
 export default async function Home() {
-  const items: FactionWithOwner[] = await getData();
+  const items: FactionWithOwner[] = await GET();
   
   return(
     <>
