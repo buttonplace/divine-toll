@@ -4,6 +4,12 @@ import { GET } from './api/items/route'
 import { Item, ChaosPrice } from '@prisma/client';
 import { FactionWithOwner } from './api/items/items';
 import ItemCard from './components/ItemCard';
+import {useEffect,useState } from 'react';
+import { GET } from './api/items/route'
+import { Item, ChaosPrice } from '@prisma/client';
+import { FactionWithOwner } from './api/items/items';
+import ItemCard from './components/ItemCard';
+
 
 export default async function Home() {
   //const items: FactionWithOwner[] = await GET();
@@ -17,11 +23,14 @@ export default async function Home() {
       return(
         <li key={item.name}>{item.name} with tradeId {item.tradeId} and price {item.currentChaos?.numerator}</li>
       )
+      
     }) : 'No items'} */}
+   
     <div>{items && JSON.stringify(items)}</div>
     <div>item should appear below</div>
     <ItemCard/>
     </>
   )
 }
+
 
