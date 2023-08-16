@@ -1,8 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Martel_Sans } from "next/font/google";
+import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const martel = Martel_Sans({
+  weight: ["200", "300", "400", "600", "700", "800", "900"],
+  subsets: ["devanagari"],
+});
 
 export const metadata: Metadata = {
   title: "Divine Toll",
@@ -16,8 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body className={inter.className}>{children}</body>
+      <body className={martel.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
