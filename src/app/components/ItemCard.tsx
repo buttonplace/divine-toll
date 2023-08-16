@@ -56,7 +56,7 @@ const ItemCard = () => {
 useEffect(()=>{
   const getItem = async (): Promise<void> => {
       try {
-        const response = await fetch('/api/items', {
+        const response = await fetch('/api/items', { //This is the one that works for 
           method: "GET",
         });
         const data = await response.json()
