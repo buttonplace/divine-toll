@@ -14,7 +14,11 @@ const Sidebar = () => {
   );
 };
 
-const SideBarIcon = ({ icon }) => {
+type Props = {
+  icon: string;
+};
+
+const SideBarIcon = ({ icon }: Props) => {
   return (
     <div className="sidebarIcon group flex flex-col ">
       <Image
