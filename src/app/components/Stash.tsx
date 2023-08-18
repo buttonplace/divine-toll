@@ -3,6 +3,9 @@ import ItemCard from "./ItemCard";
 import { useState } from "react";
 import { ItemWithPrices } from "../types/Item";
 import "server-only";
+import NewItemCard from "./NewItemCard";
+import Item from "./Item";
+import ItemWithDialog from "./ItemWithDialog";
 
 const Stash = ({
   items,
@@ -14,8 +17,8 @@ const Stash = ({
   // const [gg, setGg] = useState();
 
   return (
-    <div className="flex h-full w-full flex-col items-center bg-stone-700">
-      <div className="grid w-full grid-flow-dense grid-cols-8 sm:grid-cols-16">
+    <div className="flex h-full w-full flex-col items-center bg-stone-800">
+      <div className="grid w-full p-3 pl-0 h-screen grid-cols-4 xl:grid-cols-8 auto-rows-[1fr] box-content">
         {
           // items
           items
@@ -56,7 +59,7 @@ const Stash = ({
               // } else {
               //   // two items ago  is detailed and first, make half
               return (
-                <ItemCard
+                <ItemWithDialog
                   // onHover={(name: string | undefined) => setDetailed(name)}
                   key={item?.name}
                   item={item}

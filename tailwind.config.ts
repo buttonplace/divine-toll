@@ -13,20 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      animation: {
-        text: "text 5s ease infinite",
-      },
-      keyframes: {
-        text: {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
+
+      dropShadow: {
+        "3w": "0px 0px 10px rgba(255, 255, 255, 0.5)",
       },
     },
   },

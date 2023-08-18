@@ -4,15 +4,14 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div>
-      <div className="bg-stone-800 text-blue-600">
+      <div className="bg-stone-800">
         <div className="flex justify-around">
-          {/* <span className="flex items-center bg-stone-700 pb-2 pt-5 text-center text-5xl font-extrabold text-stone-950"> */}
-          <span className="flex item-center pb-2 pt-5 text-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">
+          <span className="flex item-center pb-0 pt-6 text-center text-7xl font-semibold drop-shadow-xl tracking-tighter text-stone-950">
             Divine{" "}
             <Image
               height={360}
               width={360}
-              className="h-16 w-16 animate-pulse duration-500"
+              className="h-16 w-16 drop-shadow-3w"
               src="/medbell.png"
               alt="Divine Toll Logo"
             />{" "}

@@ -5,11 +5,13 @@ import { Item, ChaosPrice } from "@prisma/client";
 import ItemCard from "./components/ItemCard";
 import { prisma } from "./api/db";
 import Stash from "./components/Stash";
-
+import { ItemWithPrices } from "./types/Item";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 export default async function Home() {
   //const items: FactionWithOwner[] = await GET();
 
-  const items = await prisma.item.findMany({
+  const items: ItemWithPrices[] = await prisma.item.findMany({
     where: {
       type: "scarab",
     },
@@ -18,12 +20,16 @@ export default async function Home() {
       currentDivine: true,
     },
   });
-
+  console.log("Getting items");
   return (
+    // const = [items, setItems]
     <>
-      {/* <div>{items && JSON.stringify(items)}</div>
-      <div>item should appear below</div> */}
-      <Stash items={items} />
+      <Header />
+      <div className="flex">
+        <Sidebar />
+        {/* {children} */}
+        <Stash items={items} />
+      </div>
     </>
   );
 }
