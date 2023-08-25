@@ -15,7 +15,7 @@ type Props = {
 const DialogItem = ({ item }: Props) => {
   return (
     <DialogHeader>
-      <DialogTitle>Item!</DialogTitle>
+      <DialogTitle className="flex justify-center">{item.name}</DialogTitle>
       <DialogDescription>
         <NewItemCard item={item} />
       </DialogDescription>

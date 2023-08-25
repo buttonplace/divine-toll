@@ -22,7 +22,7 @@ const ItemWithDialog = ({ item }: Props) => {
       <DialogTrigger className="mb-1 mr-1 flex grow">
         <NewItemCard item={item} />
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="border-black">
         <DialogItem item={item} />
       </DialogContent>
     </Dialog>
