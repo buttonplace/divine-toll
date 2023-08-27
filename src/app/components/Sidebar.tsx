@@ -7,7 +7,7 @@ type BarProps = {
 
 const Sidebar = ({ handleClick }: BarProps) => {
   return (
-    <div className=" top-0 left-0 h-screen w-24 m-0 flex flex-col items-center bg-stone-800 mt-3 mr-2">
+    <div className="left-0 top-0 m-0 mr-2 mt-3 flex h-screen w-24 flex-col items-center bg-transparent">
       <SideBarIcon
         link={"scarab"}
         handleClick={handleClick}

@@ -79,6 +79,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-r from-stone-900 to-stone-800 text-foreground;
   }
 }

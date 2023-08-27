@@ -10,6 +10,7 @@ import ItemWithDialog from "./ItemWithDialog";
 import { GET } from "../api/items/[type]/route";
 import Sidebar from "./Sidebar";
 import { NextResponse } from "next/server";
+import Placeholder from "./Placeholder";
 
 const Stash = ({}: // items,
 // query,
@@ -30,7 +31,7 @@ const Stash = ({}: // items,
         return;
       }
       const jsonitem: ItemWithPrices[] = await items.json();
-     
+
       setItems(jsonitem);
     }
     runItems();
@@ -58,8 +59,8 @@ const Stash = ({}: // items,
     <div className="flex">
       <Sidebar handleClick={handleClick} />
       {/* {children} */}
-      <div className="flex h-full w-full flex-col items-center bg-stone-800">
-        <div className="grid w-full p-3 pl-0 h-screen grid-cols-4 xl:grid-cols-8 auto-rows-[1fr] box-content">
+      <div className="flex h-full w-full flex-col items-center bg-transparent">
+        <div className="grid w-full p-3 pl-0 h-screen grid-cols-4 xl:grid-cols-10 auto-rows-[1fr] box-content">
           {
             // items
             items
@@ -67,6 +68,9 @@ const Stash = ({}: // items,
               //   item.name.toLowerCase().includes(query.toLowerCase())
               // )
               .map((item, index, array) => {
+                if (!item) {
+                  return <Placeholder key={index} />;
+                }
                 //if detailed is the first item, make next two small
                 //if detailed is the last item, make middle two small
                 //if detailed is item 2 or 3, make 1,3 or 2,4 small

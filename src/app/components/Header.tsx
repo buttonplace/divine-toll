@@ -4,7 +4,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div>
-      <div className="bg-stone-800">
+      <div className="bg-transparent">
         <div className="flex justify-around">
           <span className="flex item-center pb-0 pt-6 text-center text-7xl font-semibold drop-shadow-xl tracking-tighter text-stone-950">
             Divine{" "}

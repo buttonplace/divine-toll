@@ -4,6 +4,7 @@ import { Inter, Martel_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Stash from "./components/Stash";
+import Navbar from "./components/Navbar";
 
 const martel = Martel_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -22,6 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Navbar />
       <body className={martel.className}>{children}</body>
     </html>
   );

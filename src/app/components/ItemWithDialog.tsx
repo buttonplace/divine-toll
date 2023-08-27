@@ -19,10 +19,10 @@ type Props = {
 const ItemWithDialog = ({ item }: Props) => {
   return (
     <Dialog>
-      <DialogTrigger className="mb-1 mr-1 flex grow">
+      <DialogTrigger className="m-1 flex grow outline-none">
         <NewItemCard item={item} />
       </DialogTrigger>
-      <DialogContent className="border-black">
+      <DialogContent className="border-black outline-none">
         <DialogItem item={item} />
       </DialogContent>
     </Dialog>
