@@ -14,8 +14,9 @@ export default function Home() {
   return (
     // const = [items, setItems]
     <>
-      <Header />
+      {/* <Header /> */}
       <Stash />
     </>
   );
 }
+  
