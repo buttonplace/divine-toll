@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+.stash-6 {
+  @apply box-content grid h-full w-full auto-rows-[1fr] grid-cols-3 p-3 pl-0 xl:grid-cols-6
+}
+.stash-8 {
+  @apply box-content grid h-full w-full auto-rows-[1fr] grid-cols-4 p-3 pl-0 xl:grid-cols-8
+}.stash-10 {
+  @apply box-content grid h-full w-full auto-rows-[1fr] grid-cols-5 p-3 pl-0 xl:grid-cols-10
+}

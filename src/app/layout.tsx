@@ -1,8 +1,15 @@
-import "./globals.css";
+import Header from "@/components/Header";
+import "@/global.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Martel_Sans } from "next/font/google";
+import {Providers} from "./providers";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const martel = Martel_Sans({
+  weight: ["200", "300", "400", "600", "700", "800", "900"],
+  subsets: ["devanagari"],
+});
 
 export const metadata: Metadata = {
   title: "Divine Toll",
@@ -15,9 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body className={inter.className}>{children}</body>
+    <html className="light  " lang="en">
+      <body className={martel.className}>
+      <Providers>
+        <Header />
+        {children}
+        <Footer/>
+      </Providers>
+      </body>
     </html>
   );
 }
