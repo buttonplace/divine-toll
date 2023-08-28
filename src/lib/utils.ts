@@ -5,7 +5,7 @@ import { prisma } from '@/app/api/db';
 export const revalidate = 60 // revalidate the data at most every hour
 
 export const getItem = cache(async (type: string) => {
-    console.log("getting items!")
+    //console.log("getting items!")
   const response: ItemWithPrices[] | null = await prisma.item.findMany({
     where: {
       type: type,
@@ -20,11 +20,8 @@ export const getItem = cache(async (type: string) => {
 })
 
 export const getAll = cache(async () => {
-    console.log("getting ''all'' items!")
+    console.log("Getting ALL Items")
   const response: ItemWithPrices[] | null = await prisma.item.findMany({
-    where: {
-      type: "scarab",
-    },
     include: {
       currentChaos: true,
       currentDivine: true,
