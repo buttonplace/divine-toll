@@ -7,9 +7,9 @@ import { NextResponse } from "next/server";
 export async function GET(
   request: Request,
   { params }: { params: { type: string } },
-): Promise<NextResponse<(ItemWithPrices | undefined)[] | null>> {
-  // console.log(request);
-  const items: ItemWithPrices[] | null = await prisma.item.findMany({
+): Promise<NextResponse<{width: number, items: (ItemWithPrices | undefined)[]} | null>> {
+  console.log(params.type);
+  const response: ItemWithPrices[] | null = await prisma.item.findMany({
     where: {
       type: params.type,
     },
@@ -18,26 +18,38 @@ export async function GET(
       currentDivine: true,
     },
   });
-  if (!items) {
+  if (!response) {
     return NextResponse.json(null);
   }
   let count = 0;
-  const sorted = items.sort((a, b) => {
+  const sorted = response.sort((a, b) => {
     return a.stashIndex! - b.stashIndex!;
   });
-  const reMap = [];
-  for (let i = 0; i < sorted[sorted.length - 1].stashIndex!; i++) {
+  const items = [];
+  for (let i = 0; i < sorted[sorted.length-1].stashIndex!+1; i++) {
     if (sorted[count].stashIndex == i) {
-      reMap.push(sorted[count]);
+      items.push(sorted[count]);
       count += 1;
     } else {
-      reMap.push(undefined);
+      items.push(undefined);
     }
   }
+  let width = 0;
+  if (params.type == "scarab"){
+    width = 8
+  } else if (params.type == "currency"){
+    width = 10
+  } else if (params.type == "essence"){
+    width = 6
+  }else{
+    width = 5
+  }
+  console.log(width);
+  console.log(items)
   return NextResponse.json(
     // items.sort((a, b) => {
     //   return a.stashIndex! - b.stashIndex!;
     // })
-    reMap,
+    {width, items}
   );
 }
