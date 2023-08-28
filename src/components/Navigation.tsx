@@ -4,8 +4,11 @@ import {  Navbar,  DropdownTrigger, DropdownItem, DropdownMenu, NavbarBrand, But
 import Image from 'next/image';
 import Link from 'next/link';
 import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "./Icons";
+import { useRouter } from 'next/navigation';
 
 const Navigation = () => {
+  const router = useRouter()
+
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} height={undefined} width={undefined} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} height={undefined} width={undefined} />,
@@ -22,7 +25,7 @@ const Navigation = () => {
     </NavbarBrand>
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link href="/stash">Stash View</Link>
+          <Link href="/table">Table View</Link>
     </NavbarItem>
       <Dropdown>
         <NavbarItem>
@@ -44,6 +47,7 @@ const Navigation = () => {
           itemClasses={{
             base: "gap-4",
           }}
+          onAction={(key) => router.push("/stash/"+key)}
         >
           <DropdownItem
             key="scarab"
@@ -64,7 +68,7 @@ const Navigation = () => {
             Essences
           </DropdownItem>
           <DropdownItem
-            key="delve"
+            key="fossil"
             startContent={<Image src="/fossil.png" alt="delve" width={32} height={32}/>}
           >
             Delve
@@ -76,7 +80,7 @@ const Navigation = () => {
             Oils
           </DropdownItem>
           <DropdownItem
-            key="fragments"
+            key="fragment"
             startContent={<Image src="/fragment.png" alt="fragment" width={32} height={32}/>}
           >
             Fragments
@@ -93,5 +97,8 @@ const Navigation = () => {
   </Navbar>
   )
 }
+
+
+
 
 export default Navigation;
