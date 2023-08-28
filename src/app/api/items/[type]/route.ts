@@ -1,12 +1,12 @@
 import { Prisma, PrismaClient } from "@prisma/client";
-import { prisma } from "@/app/api/db";
-import { ItemWithPrices, Item } from "@/app/types/Item";
+import { prisma } from "../../db";
+import { ItemWithPrices, Item } from "../../../../types/Item";
 import "server-only";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { type: string } }
+  { params }: { params: { type: string } },
 ): Promise<NextResponse<(ItemWithPrices | undefined)[] | null>> {
   // console.log(request);
   const items: ItemWithPrices[] | null = await prisma.item.findMany({
@@ -38,6 +38,6 @@ export async function GET(
     // items.sort((a, b) => {
     //   return a.stashIndex! - b.stashIndex!;
     // })
-    reMap
+    reMap,
   );
 }

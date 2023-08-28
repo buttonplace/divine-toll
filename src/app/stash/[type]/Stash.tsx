@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { ItemWithPrices } from "../types/Item";
+import { ItemWithPrices } from "@/types/Item";
 // import "server-only";
-import NewItemCard from "./NewItemCard";
-import { GET } from "../api/items/[type]/route";
+import Item from "./Item";
+import { GET } from "@/app/api/items/[type]/route";
 import { NextResponse } from "next/server";
-import Placeholder from "./Placeholder";
+import Placeholder from "./PlaceHolder";
 
 const Stash = ({}: // items,
 // query,
@@ -58,7 +58,7 @@ const Stash = ({}: // items,
           if (!item) {
             return <Placeholder key={index} />;
           }
-          return <NewItemCard key={item?.name} item={item} />;
+          return <Item key={item?.name} item={item} />;
         })}
       </div>
     </div>
