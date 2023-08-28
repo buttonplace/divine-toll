@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { ItemWithPrices } from "@/types/Item";
+import { ItemWithPrices } from "../../../types/Item";
 // import "server-only";
 import Item from "./Item";
-import { GET } from "@/app/api/items/[type]/route";
 import { NextResponse } from "next/server";
-import Placeholder from "./PlaceHolder";
+import Placeholder from "./Placeholder";
 
 const Stash = ({}: // items,
 // query,
