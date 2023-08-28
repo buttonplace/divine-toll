@@ -1,28 +1,23 @@
-import Header from "@/components/Header";
-import "@/global.css";
-import type { Metadata } from "next";
-import { Inter, Martel_Sans } from "next/font/google";
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import '@mantine/core/styles.css';
 
-const martel = Martel_Sans({
-  weight: ["200", "300", "400", "600", "700", "800", "900"],
-  subsets: ["devanagari"],
-});
+import { MantineProvider, ColorSchemeScript, createTheme } from '@mantine/core';
 
-export const metadata: Metadata = {
-  title: "Divine Toll",
-  description: "A pricing index for Path of Exile",
+export const metadata = {
+  title: 'My Mantine app',
+  description: 'I have followed setup instructions carefully',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html data-theme="divine" lang="en">
-      <body className={martel.className}>
-        <Header />
-        {children}
+    <html lang="en">
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );
