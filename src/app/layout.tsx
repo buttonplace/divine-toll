@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <div>
+    <html data-theme="divine" lang="en">
+      <body className={martel.className}>
         <Navbar />
-        <body className={martel.className}>{children}</body>
-      </div>
+        {children}
+      </body>
     </html>
   );
 }

@@ -24,7 +24,7 @@ const Stash = ({}: // items,
     async function runItems() {
       const items = await fetch(
         process.env.NEXT_PUBLIC_API_URL! + "/api/items/scarab",
-        { method: "GET" }
+        { method: "GET" },
       );
       if (!items) {
         console.log("no ites");
@@ -41,7 +41,7 @@ const Stash = ({}: // items,
     async function runItems() {
       const items = await fetch(
         process.env.NEXT_PUBLIC_API_URL! + "/api/items/" + type,
-        { method: "GET" }
+        { method: "GET" },
       );
       if (!items) {
         return;
@@ -60,7 +60,7 @@ const Stash = ({}: // items,
       <Sidebar handleClick={handleClick} />
       {/* {children} */}
       <div className="flex h-full w-full flex-col items-center bg-transparent">
-        <div className="grid w-full p-3 pl-0 h-screen grid-cols-4 xl:grid-cols-10 auto-rows-[1fr] box-content">
+        <div className="box-content grid h-screen w-full auto-rows-[1fr] grid-cols-4 p-3 pl-0 xl:grid-cols-10">
           {
             // items
             items
@@ -104,7 +104,7 @@ const Stash = ({}: // items,
                 // } else {
                 //   // two items ago  is detailed and first, make half
                 return (
-                  <ItemWithDialog
+                  <NewItemCard
                     // onHover={(name: string | undefined) => setDetailed(name)}
                     key={item?.name}
                     item={item}
