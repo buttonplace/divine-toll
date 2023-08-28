@@ -1,4 +1,3 @@
-import { revalidate } from "../page";
 import Stash from "./Stash";
 import { ItemWithPrices } from "@/types/Item";
 
@@ -11,7 +10,7 @@ export default async function StashPage({ params }: Props) {
   //const items: FactionWithOwner[] = await GET();
   const response = await fetch(
     process.env.NEXT_PUBLIC_API_URL! + "/api/items/" + params.type,
-    { method: "GET", next: {revalidate:10}},
+    { method: "GET", next: {revalidate:5  }},
   );
   if (!response) {
     console.log("no ites");

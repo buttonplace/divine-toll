@@ -12,7 +12,7 @@ export async function GET(
   request: Request,
   { params }: { params: { type: string } },
 ): Promise<NextResponse<{width: number, items: (ItemWithPrices | undefined)[]} | null>> {
-  console.log(params.type);
+  console.log("runningmslall")
 
   const response = await getItem(params.type)
   // const response: ItemWithPrices[] | null = await prisma.item.findMany({
@@ -50,7 +50,9 @@ export async function GET(
     width = 10
   } else if (params.type == "essence"){
     width = 6
-  }else{
+  }else if (params.type === "fragment" || params.type === "fossil"){
+    width = 8
+   } else{
     width = 5
   }
   return NextResponse.json(
