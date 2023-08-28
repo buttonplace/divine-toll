@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="purple-dark" lang="en">
+    <html className="light  " lang="en">
       <body className={martel.className}>
       <Providers>
         <Header />

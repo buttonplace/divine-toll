@@ -9,6 +9,7 @@ import { NextResponse } from "next/server";
  import Placeholder from "../../../components/Placeholder";
  import {Tabs, Tab, Card, CardBody, CardHeader} from "@nextui-org/react";
  import {Image} from "@nextui-org/react";
+ import Search from "./Search";
 
 
 
@@ -24,18 +25,30 @@ const Stash = ({type,items,width}: Props// items,
   // items: ItemWithPrices[];
   // query: string;
 ) => {
+  const [query, setQuery] = useState<string>("");
 
   const stashClass = `stash-${width}`
   return (
-    <div className="flex w-full flex-col items-center">
-      
+    <div className="flex w-full flex-col items-center p-8">
+      <Search setSearch={setQuery} query={query}/>
       <div className={stashClass}>
-         {items.map((item, index, array) => {
+         {
+         !query?(
+          items.map((item, index, array) => {
            if (!item) {
              return <Placeholder key={index} />;
            }
            return <Item key={item?.name} item={item} />;
-         })}
+         })):
+         items.filter((item)=>{
+          if (!item){
+            return false;
+          } 
+          return item.name.toLowerCase().includes(query.toLowerCase())
+         }).map((item, index, array) => {
+          return <Item key={item?.name} item={item} />;
+        })
+        }
       </div>
     </div>  
   );

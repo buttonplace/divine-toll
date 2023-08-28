@@ -12,7 +12,7 @@ type Props = {
 const Item = ({ item }: Props) => {
 
   return (
-    <Card shadow="lg" isHoverable isPressable className="m-1">
+    <Card shadow="lg" isHoverable isPressable className="m-1 bg-primary">
       <CardHeader className="justify-center">
         <div className="flex flex-col items-center gap-5">
         <Image loading="lazy" src={item.icon} alt={item.name} className="w-10 h-10"/>
