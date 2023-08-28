@@ -1,8 +1,7 @@
-import "../globals.css";
+import Header from "@/components/Header";
+import "@/global.css";
 import type { Metadata } from "next";
 import { Inter, Martel_Sans } from "next/font/google";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 
 const martel = Martel_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -22,7 +21,7 @@ export default function RootLayout({
   return (
     <html data-theme="divine" lang="en">
       <body className={martel.className}>
-        <Navbar />
+        <Header />
         {children}
       </body>
     </html>
