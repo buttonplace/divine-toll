@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
+import { cn } from "@/app/lib/utils";
+import { Icons } from "@/app/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/app/components/ui/navigation-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -53,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function NavigationMenuDemo() {
+export default function Navbar() {
   return (
     <NavigationMenu>
       <NavigationMenuList>

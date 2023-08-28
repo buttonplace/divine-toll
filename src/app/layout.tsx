@@ -23,8 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Navbar />
-      <body className={martel.className}>{children}</body>
+      <body className={martel.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
