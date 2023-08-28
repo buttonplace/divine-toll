@@ -1,12 +1,13 @@
+import { revalidate } from "../page";
+import Stash from "./Stash";
 import { ItemWithPrices } from "@/types/Item";
-import ItemTable from "./ItemTable";
 
 
 type Props = {
   params: { type: string };
 };
 
-export default async function TablePage({ params }: Props) {
+export default async function StashPage({ params }: Props) {
   //const items: FactionWithOwner[] = await GET();
   const response = await fetch(
     process.env.NEXT_PUBLIC_API_URL! + "/api/items/" + params.type,
@@ -21,8 +22,7 @@ export default async function TablePage({ params }: Props) {
   return (
     // const = [items, setItems]
     <div>
-        <ItemTable type={params.type} itemsss={items} />
-        {/* <ItemTable /> */}
+        <Stash type={params.type} items={items} width={width}/>
     </div>
   );
 }

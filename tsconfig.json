@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/api/db.ts"
-, "src/components/Icons.jsx"  ],
+, "src/components/Icons.jsx", "src/app/table/[type]/PlusIcon.jsx", "src/app/table/[type]/ItemTable.tsx"  ],
   "exclude": [
     "node_modules"
   ]

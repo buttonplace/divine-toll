@@ -34,7 +34,7 @@ const Navigation = () => {
               radius="sm"
               variant="light"
             >
-              Table View
+              Stash View
             </Button>
           </DropdownTrigger>
         </NavbarItem>

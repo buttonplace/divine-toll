@@ -3,21 +3,30 @@ import { prisma } from "../../db";
 import { ItemWithPrices, Item } from "../../../../types/Item";
 import "server-only";
 import { NextResponse } from "next/server";
+import { getItem } from "@/lib/utils";
+
+
+
 
 export async function GET(
   request: Request,
   { params }: { params: { type: string } },
 ): Promise<NextResponse<{width: number, items: (ItemWithPrices | undefined)[]} | null>> {
   console.log(params.type);
-  const response: ItemWithPrices[] | null = await prisma.item.findMany({
-    where: {
-      type: params.type,
-    },
-    include: {
-      currentChaos: true,
-      currentDivine: true,
-    },
-  });
+
+  const response = await getItem(params.type)
+  // const response: ItemWithPrices[] | null = await prisma.item.findMany({
+  //   where: {
+  //     type: params.type,
+  //   },
+  //   include: {
+  //     currentChaos: true,
+  //     currentDivine: true,
+  //   },
+
+  // });
+
+  
   if (!response) {
     return NextResponse.json(null);
   }
@@ -44,8 +53,6 @@ export async function GET(
   }else{
     width = 5
   }
-  console.log(width);
-  console.log(items)
   return NextResponse.json(
     // items.sort((a, b) => {
     //   return a.stashIndex! - b.stashIndex!;
