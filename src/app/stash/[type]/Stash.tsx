@@ -6,10 +6,12 @@ import { ItemWithPrices } from "@/types/Item";
 import Item from "../../../components/Item";
 import { GET } from "@/app/api/items/[type]/route";
 import { NextResponse } from "next/server";
- import Placeholder from "../../../components/Placeholder";
- import Search from "./Search";
+import Placeholder from "../../../components/Placeholder";
+import Search from "./Search";
+import StashGrid from "./StashGrid";
+import { Switch } from "@/components/ui/switch";
 
-
+import StashList from "./StashList";
 
 type Props = {
   type: string;
@@ -31,7 +33,10 @@ const Stash = (
     : `flex justify-center flex-wrap`;
   return (
     <div className="bg-stash_background mb-10 flex flex-col items-center">
-      <Search setSearch={setQuery} query={query} />
+      <div className="flex w-full items-center justify-between">
+        <Search setSearch={setQuery} query={query} />
+        <Switch className="flex-1" />
+      </div>
       {query ? (
         <StashList items={items} query={query} />
       ) : (
@@ -39,7 +44,6 @@ const Stash = (
       )}
     </div>
   );
-
 };
 
 export default Stash;

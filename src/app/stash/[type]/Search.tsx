@@ -1,7 +1,6 @@
 import React from "react";
-import {SearchIcon} from "./SearchIcon";
-import { Input } from "@/components/ui/input"
-
+import { SearchIcon } from "./SearchIcon";
+import { Input } from "@/components/ui/input";
 
 type Props = {
   setSearch: Function;
@@ -24,14 +23,13 @@ export default function Search({ setSearch, query }: Props) {
     // />
 
     <Input
-    type="search"
-    defaultValue=""
-    className="max-w-xs"
-    onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{
-        setSearch(e.target.value)
-    }}
-  />
-
+      type="search"
+      placeholder="search"
+      className="max-w-xs"
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
+      }}
+    />
   );
 }
 

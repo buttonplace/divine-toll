@@ -3,7 +3,7 @@ import "@/global.css";
 import type { Metadata } from "next";
 import { Inter, Martel_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import { StyleToggle } from "@/components/StyleToggle";
 
 const martel = Martel_Sans({

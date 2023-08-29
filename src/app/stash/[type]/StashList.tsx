@@ -3,13 +3,13 @@ import ListItem from "@/components/ListItem";
 import React from "react";
 import {
   Table,
-  TableHeader,
-  TableColumn,
   TableBody,
-  TableRow,
+  TableCaption,
   TableCell,
-  getKeyValue,
-} from "@nextui-org/react";
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 type Props = {
   items: ItemWithPrices[];
@@ -33,41 +33,25 @@ const columns = [
 
 const StashList = ({ items, query }: Props) => {
   return (
-    <Table aria-label="Example table with dynamic content">
-      <TableHeader columns={columns}>
-        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+    <Table>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[100px]">Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
       </TableHeader>
-      <TableBody
-        items={items.filter((item) => {
-          if (!item) return false;
-          return item.name.toLowerCase().includes(query.toLowerCase());
-        })}
-      >
-        {(item) => (
-          <TableRow key={item.name}>
-            <TableCell>{item.name}</TableCell>
-            <TableCell>
-              {item.currentDivine?.numerator}/{item.currentDivine?.denominator}
-            </TableCell>
-            <TableCell>
-              {item.currentChaos?.numerator}/{item.currentChaos?.denominator}
-            </TableCell>
-          </TableRow>
-        )}
+      <TableBody>
+        <TableRow>
+          <TableCell className="font-medium">INV001</TableCell>
+          <TableCell>Paid</TableCell>
+          <TableCell>Credit Card</TableCell>
+          <TableCell className="text-right">$250.00</TableCell>
+        </TableRow>
       </TableBody>
     </Table>
-    // <div>
-    //   {items
-    //     .filter((item) => {
-    //       if (!item) {
-    //         return false;
-    //       }
-    //       return item.name.toLowerCase().includes(query.toLowerCase());
-    //     })
-    //     .map((item, index, array) => {
-    //       return <ListItem key={item?.name} item={item} />;
-    //     })}
-    // </div>
   );
 };
 
