@@ -1,6 +1,7 @@
 import React from "react";
-import {Input} from "@nextui-org/react";
 import {SearchIcon} from "./SearchIcon";
+import { Input } from "@/components/ui/input"
+
 
 type Props = {
     setSearch: Function,
@@ -11,7 +12,6 @@ export default function Search({setSearch, query}:Props) {
   return (
     <Input
     type="search"
-    label="Search"
     defaultValue=""
     className="max-w-xs"
     onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{
