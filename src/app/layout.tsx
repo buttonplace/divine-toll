@@ -4,6 +4,11 @@ import type { Metadata } from "next";
 import { Inter, Martel_Sans } from "next/font/google";
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import "@mantine/core/styles.css";
+
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 
 const martel = Martel_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -21,13 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="new" lang="en">
-      <body className={martel.className}>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+    <html lang="en">
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );
