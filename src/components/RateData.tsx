@@ -29,7 +29,7 @@ const RateData = ({ item, currency }: Props) => {
         )}
         <Image
           loading="lazy"
-          src={`/${currency}.png`}
+          src={`/assets/${currency}.png`}
           alt={`${currency} Orb`}
           className="w-10"
           height={32}

@@ -9,7 +9,7 @@ const Placeholder = () => {
     <Card className="m-1 flex flex-grow border-none bg-background shadow-none ">
       <CardContent className="flex grow items-center justify-center ">
         <Image
-          src="/medbell.png"
+          src="/assets/medbell.png"
           alt="Divine Toll Icon"
           width={32}
           height={32}
