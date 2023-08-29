@@ -27,7 +27,16 @@ const components: { title: string; href: string; description: string }[] = [
 
 const Navigation = () => {
   const router = useRouter();
+  const router = useRouter();
 
+  const icons = {
+    chevron: <ChevronDown fill="currentColor" size={16} height={undefined} width={undefined} />,
+    scale: <Scale className="text-warning" fill="currentColor" size={30} height={undefined} width={undefined} />,
+    lock: <Lock className="text-success" fill="currentColor" size={30} height={undefined} width={undefined} />,
+    activity: <Activity className="text-secondary" fill="currentColor" size={30} height={undefined} width={undefined} />,
+    server: <Server className="text-success" fill="currentColor" size={30} height={undefined} width={undefined} />,
+    user: <TagUser className="text-danger" fill="currentColor" size={30} height={undefined} width={undefined} />,
+  };
   return (
     <NavigationMenu>
       <NavigationMenuList>

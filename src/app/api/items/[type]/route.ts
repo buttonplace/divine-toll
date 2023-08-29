@@ -12,6 +12,10 @@ export async function GET(
   NextResponse<{ width: number; items: (ItemWithPrices | undefined)[] } | null>
 > {
   console.log("runningmslall");
+): Promise<
+  NextResponse<{ width: number; items: (ItemWithPrices | undefined)[] } | null>
+> {
+  console.log("runningmslall");
 
   const response = await getType(params.type);
   // const response: ItemWithPrices[] | null = await prisma.item.findMany({
@@ -34,6 +38,7 @@ export async function GET(
   });
   const items = [];
   for (let i = 0; i < sorted[sorted.length - 1].stashIndex! + 1; i++) {
+  for (let i = 0; i < sorted[sorted.length - 1].stashIndex! + 1; i++) {
     if (sorted[count].stashIndex == i) {
       items.push(sorted[count]);
       count += 1;
@@ -52,11 +57,22 @@ export async function GET(
     width = 8;
   } else {
     width = 5;
+  if (params.type == "scarab") {
+    width = 8;
+  } else if (params.type == "currency") {
+    width = 10;
+  } else if (params.type == "essence") {
+    width = 6;
+  } else if (params.type === "fragment") {
+    width = 8;
+  } else if (params.type === "fossil") {
+    width = 9;
   }
   return NextResponse.json(
     // items.sort((a, b) => {
     //   return a.stashIndex! - b.stashIndex!;
     // })
+    { width, items },
     { width, items },
   );
 }
