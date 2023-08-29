@@ -1,17 +1,13 @@
 import { Prisma, PrismaClient } from "@prisma/client";
-import { prisma } from "../../db";
-import { ItemWithPrices, Item } from "../../../../types/Item";
+import { prisma } from "../db";
+import { ItemWithPrices, Item } from "@/types/Item";
 import "server-only";
 import { NextResponse } from "next/server";
 import { getAll } from "@/lib/utils";
 
-
-
-
 export async function GET(
   request: Request,
 ): Promise<NextResponse<(ItemWithPrices | undefined)[] | null>> {
-
   const response = await getAll();
   // const response: ItemWithPrices[] | null = await prisma.item.findMany({
   //   where: {
@@ -23,7 +19,7 @@ export async function GET(
   //   },
 
   // });
-  
+
   if (!response) {
     return NextResponse.json(null);
   }
@@ -32,6 +28,6 @@ export async function GET(
     // items.sort((a, b) => {
     //   return a.stashIndex! - b.stashIndex!;
     // })
-    response
+    response,
   );
 }

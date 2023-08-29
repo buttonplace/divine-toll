@@ -10,10 +10,10 @@ type Props = {
   item: ItemWithPrices;
 };
 
-const Item = ({ item }: Props) => {
+const ListItem = ({ item }: Props) => {
   return (
-    <Card shadow="md" isPressable className="m-1 bg-background">
-      <CardHeader className="bg-primary-800 flex flex-col items-center gap-1">
+    <Card shadow="lg" isHoverable isPressable className="bg-default m-1">
+      <CardHeader className="border-1 flex items-center gap-2 border-black">
         <Image
           shadow="lg"
           loading="lazy"
@@ -22,13 +22,11 @@ const Item = ({ item }: Props) => {
           className="h-12 w-12"
         />
         {/* <Avatar color="primary" radius="full" size="lg" src={item.icon} /> */}
-        <div className="flex h-[2.5em] items-center">
-          <h4 className="text-small font-semibold leading-tight text-primary">
-            {item.name}
-          </h4>
-        </div>
+        <h4 className="text-small font-semibold leading-none text-primary">
+          {item.name}
+        </h4>
       </CardHeader>
-      <CardBody className="bg-primary-700 flex flex-col items-center justify-center gap-2">
+      <CardBody className="flex items-center justify-center gap-2">
         <span className="flex items-center gap-1">
           <p>{item.currentDivine?.numerator}</p>
           <Image
@@ -68,7 +66,7 @@ const Item = ({ item }: Props) => {
   );
 };
 
-export default Item;
+export default ListItem;
 
 // <CardFooter className="justify-center gap-3">
 //         <div className="flex items-center gap-1">
