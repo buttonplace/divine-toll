@@ -6,14 +6,14 @@ const hello = "qq";
 
 const Placeholder = () => {
   return (
-    <Card className="w-[350px]">
-      <CardContent>
+    <Card className="flex flex-grow  items-center justify-center border-none">
+      <CardContent className="grow">
         <Image
           src="/medbell.png"
           alt="Divine Toll Icon"
           width={32}
           height={32}
-          className="w-full"
+          className="w-full opacity-20"
         />
       </CardContent>
     </Card>
