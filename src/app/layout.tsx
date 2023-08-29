@@ -2,9 +2,9 @@ import Header from "@/components/Header";
 import "@/global.css";
 import type { Metadata } from "next";
 import { Inter, Martel_Sans } from "next/font/google";
-import {Providers} from "./providers";
 import Footer from "@/components/Footer";
-
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { StyleToggle } from "@/components/StyleToggle";
 
 const martel = Martel_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -24,11 +24,12 @@ export default function RootLayout({
   return (
     <html className="light  " lang="en">
       <body className={martel.className}>
-      <Providers>
-        <Header />
-        {children}
-        <Footer/>
-      </Providers>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

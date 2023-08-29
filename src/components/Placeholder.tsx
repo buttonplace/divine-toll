@@ -1,19 +1,23 @@
-
-
-
-import { ItemWithPrices } from "@/types/Item";
 import React from "react";
-import {Image} from "@nextui-org/react";
-import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
-import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
-import {Button, ButtonGroup} from "@nextui-org/react";
+import { Card, CardContent } from "./ui/card";
+import Image from "next/image";
+
+const hello = "qq";
 
 const Placeholder = () => {
   return (
-    <Card isBlurred isDisabled className="m-1 flex justify-center items-center">
-        <Image loading="lazy" src="/medbell.png" alt="Divine Toll Icon" className="w-full"/>
+    <Card className="m-1 flex flex-grow border-none bg-background shadow-none ">
+      <CardContent className="flex grow items-center justify-center ">
+        <Image
+          src="/assets/medbell.png"
+          alt="Divine Toll Icon"
+          width={32}
+          height={32}
+          className=" w-1/3 opacity-20"
+        />
+      </CardContent>
     </Card>
   );
-}
+};
 
-export default Placeholder; 
+export default Placeholder;

@@ -1,62 +1,59 @@
 import { ItemWithPrices } from "@/types/Item";
 import React from "react";
-import {Image} from "@nextui-org/react";
-import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";
-import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
-import {Button, ButtonGroup} from "@nextui-org/react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Image from "next/image";
+import { Accordion, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { Separator } from "./ui/separator";
+import { LuArrowRightLeft } from "react-icons/lu";
+import Confidence from "./Confidence";
+import RateData from "./RateData";
 
 type Props = {
   item: ItemWithPrices;
 };
 
 const Item = ({ item }: Props) => {
-
+  const confColor = "bg-card";
   return (
-    <Card shadow="lg" isHoverable isPressable className="m-1 bg-primary">
-      <CardHeader className="justify-center">
-        <div className="flex flex-col items-center gap-5">
-        <Image loading="lazy" src={item.icon} alt={item.name} className="w-10 h-10"/>
-          {/* <Avatar color="primary" radius="full" size="lg" src={item.icon} /> */}
-          <div className="flex flex-col gap-1 items-start  justify-center">
-            <h4 className="ml-2 text-small font-semibold leading-none text-default-600">{item.name}</h4>
-          </div>
+    <Card className="border-card group m-1 flex flex-col items-center border duration-75 hover:cursor-pointer active:scale-105 active:opacity-20">
+      <CardHeader className="flex w-full flex-row items-center justify-around rounded-lg rounded-b-none bg-background p-1 ">
+        <Image
+          loading="lazy"
+          src={item.icon}
+          alt={item.name}
+          height={32}
+          width={32}
+          className="w-1/3 max-w-[60px] group-hover:drop-shadow-none"
+        />
+        {/* <Avatar color="primary" radius="full" size="lg" src={item.icon} /> */}
+        <div className="flex h-[5em] w-1/2 items-center justify-start text-sm">
+          <h4 className="ml-2 overflow-hidden py-2 text-small font-semibold leading-none text-default-600">
+            {item.name}
+          </h4>
         </div>
       </CardHeader>
-      <CardFooter className="gap-3 justify-center">
-        <div className="flex items-center gap-1">
-          <p className="m-1 font-semibold text-default-400 text-small">{item.currentChaos?.numerator}</p>
-          {/* <Avatar  radius="full" size="sm" src="/chaos.png" /> */}
-          <Image loading="lazy" src="/chaos.png" alt="Chaos Orb" className="w-10 h-10"/>
-
-        </div>
-        <div className="font-extrabold">
-          :
-        </div>
-        <div className="flex items-center gap-1">
-          <p className="m-1 font-semibold text-default-400 text-small">{item.currentChaos?.denominator}</p>
-          {/* <Avatar  radius="full" size="sm" src={item.icon} /> */}
-          <Image loading="lazy" src={item.icon} alt={item.name} className="w-10 h-10"/>
-
+      <CardFooter className={`m-2 w-full justify-center p-0 ${confColor}`}>
+        <RateData item={item} currency="Chaos" />
+        <div className="flex w-1/4 items-center justify-center p-0 align-middle">
+          <Confidence confidence={item.currentDivine?.confidence!} />
         </div>
       </CardFooter>
-      <CardFooter className=" justify-center gap-3">
-        <div className="flex items-center gap-1">
-          <p className="m-1 font-semibold text-default-400 text-small">{item.currentDivine?.numerator}</p>
-          {/* <Avatar  radius="full" size="sm" src="/chaos.png" /> */}
-          <Image loading="lazy" src="/divine.png" alt="Divine Orb" className="w-10 h-10"/>
-
-        </div>
-        <div className="font-extrabold">
-          :
-        </div>
-        <div className="flex items-center gap-1">
-          <p className="m-1 font-semibold text-default-400 text-small">{item.currentDivine?.denominator}</p>
-          {/* <Avatar  radius="full" size="sm" src={item.icon} /> */}
-          <Image loading="lazy" src={item.icon} alt={item.name} className="w-10 h-10"/>
+      <Separator />
+      <CardFooter className={`m-2 w-full justify-center p-0 ${confColor}`}>
+        <RateData item={item} currency="Divine" />
+        <div className="flex w-1/4 items-center justify-center p-0 align-middle">
+          <Confidence confidence={item.currentDivine?.confidence!} />
         </div>
       </CardFooter>
     </Card>
   );
-}
+};
 
 export default Item;

@@ -1,89 +1,86 @@
-const {nextui} = require("@nextui-org/react");
-
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
-	],
-  darkMode: "class",
-  plugins: [require("tailwindcss-animate"),nextui({
-    themes: {
-      "divine": {
-        
-        colors: {
-          divider: "#C79931",
-          content1: "#C79931",
-          content2: "#C79931",
-          content3: "#C79931",
-          content4: "#C79931",
-          default: "#C79931",
-          primary: "#C79931",
-          secondary: "#C79931",
-          success: "#C79931",
-          warning: "#C79931",
-          danger: "#C79931",
-          background: "#C79931",
-          foreground:{
-            100: "#C79931",
-            200: "#C79931",
-            300: "#C79931",
-            400: "#C79931",
-            500: "#C79931",
-            600: "#C79931",
-            700: "#C79931",
-            800: "#C79931",
-            900: "#C79931",
-            950:"#C79931", 
-          },
-          focus: "#C79931",
-          default: {
-            100: "#C79931",
-            200: "#C79931",
-            300: "#C79931",
-            400: "#C79931",
-            500: "#C79931",
-            600: "#C79931",
-            700: "#C79931",
-            800: "#C79931",
-            900: "#C79931",
-            950:"#C79931",
-            divider: "#C79931",
-          content1: "#C79931",
-          content2: "#C79931",
-          content3: "#C79931",
-          content4: "#C79931",
-          default: "#C79931",
-          primary: "#C79931",
-          secondary: "#C79931",
-          success: "#C79931",
-          warning: "#C79931",
-          danger: "#C79931",
-          background: "#C79931",
-          foreground: "#C79931",
-          focus: "#C79931",
-          },
-        
-        },
-        layout: {
-          disabledOpacity: "0.3",
-          radius: {
-            small: "4px",
-            medium: "6px",
-            large: "8px",
-          },
-          borderWidth: {
-            small: "1px",
-            medium: "2px",
-            large: "3px",
-          },
-        },
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
     },
-  }),
-]
-}
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      dropShadow: {
+        glow: [
+          "0 0px 10px rgba(255,255, 255, 0.35)",
+          "0 0px 35px rgba(255, 255,255, 0.2)",
+        ],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+};
