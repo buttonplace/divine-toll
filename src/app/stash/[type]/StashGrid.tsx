@@ -6,6 +6,7 @@ import Placeholder from "@/components/Placeholder";
 type Props = {
   items: ItemWithPrices[];
   stashClass: string;
+  query: string;
 };
 
 const StashGrid = ({ items, stashClass, query }: Props) => {

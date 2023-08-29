@@ -33,14 +33,15 @@ const Stash = (
     : `flex justify-center flex-wrap`;
   return (
     <div className="bg-stash_background mb-10 flex flex-col items-center">
-      <div className="flex w-full items-center justify-between">
+      <div className="grid w-full grid-cols-3 ">
+        <div className="spacer"></div>
         <Search setSearch={setQuery} query={query} />
-        <Switch className="flex-1" />
+        <Switch className="ml-auto mr-6" />
       </div>
       {query ? (
         <StashList items={items} query={query} />
       ) : (
-        <StashGrid items={items} stashClass={stashClass} />
+        <StashGrid query={query} items={items} stashClass={stashClass} />
       )}
     </div>
   );

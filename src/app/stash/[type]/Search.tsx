@@ -25,7 +25,7 @@ export default function Search({ setSearch, query }: Props) {
     <Input
       type="search"
       placeholder="search"
-      className="max-w-xs"
+      className="max-w-xs self-center"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
       }}
