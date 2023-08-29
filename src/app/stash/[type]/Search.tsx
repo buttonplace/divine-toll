@@ -23,33 +23,29 @@ export default function Search({ setSearch, query }: Props) {
     // />
 
     <Input
-      label="Search"
-      isClearable
-      radius="sm"
       classNames={{
-        label: "text-primary",
-        input: [
-          "bg-transparent",
-          "text-primary-800", //Color of typed text
-          "placeholder:text-primary-800/50",
-          "max-w-[300px]",
-        ],
-        innerWrapper: ["bg-transparent", "max-w-[300px]"],
-        inputWrapper: [
-          "self-center",
-          "shadow-xl",
-          "bg-primary-800", //color of input
-          "hover:bg-primary-700",
-          "group-data-[focused=true]:bg-primary-700",
-          "!cursor-text",
-          "max-w-[300px]",
-          "m-5",
-        ],
+        inputWrapper: ["bg-primary-700", "border-primary-900", "border"],
       }}
-      placeholder="Type to search..."
+      isClearable
+      color="primary"
+      radius="sm"
+      variant="bordered"
+      className="max-w-[350px]"
+      placeholder="Search for an item"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
       }}
     />
   );
 }
+
+// // base: Input wrapper, it handles alignment, placement, and general appearance.
+// label: Label of the input, it is the one that is displayed above, inside or left of the input.
+// mainWrapper: Wraps the inputWrapper when position is outside / outside-left.
+// inputWrapper: Wraps the label (when it is inside) and the innerWrapper.
+// innerWrapper: Wraps the input, the startContent and the endContent.
+// input: The input element.
+// clearButton: The clear button, it is at the end of the input.
+// helperWrapper: Wraps the description and the errorMessage.
+// description: The description of the input.
+// errorMessage: The error message of the input.

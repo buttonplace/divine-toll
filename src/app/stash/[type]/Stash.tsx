@@ -32,7 +32,7 @@ const Stash = (
     ? `stash-${width}`
     : `flex justify-center flex-wrap`;
   return (
-    <div className="bg-stash_background flex flex-col items-center">
+    <div className="bg-stash_background mb-10 flex flex-col items-center">
       <Search setSearch={setQuery} query={query} />
       {query ? (
         <StashList items={items} query={query} />

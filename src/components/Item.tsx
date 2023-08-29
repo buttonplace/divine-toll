@@ -12,8 +12,8 @@ type Props = {
 
 const Item = ({ item }: Props) => {
   return (
-    <Card shadow="md" isPressable className="m-1 bg-background">
-      <CardHeader className="bg-primary-800 flex flex-col items-center gap-1">
+    <Card shadow="lg" isPressable className="m-1 bg-background">
+      <CardHeader className="flex flex-col items-center gap-1 bg-primary-800">
         <Image
           shadow="lg"
           loading="lazy"
@@ -23,12 +23,12 @@ const Item = ({ item }: Props) => {
         />
         {/* <Avatar color="primary" radius="full" size="lg" src={item.icon} /> */}
         <div className="flex h-[2.5em] items-center">
-          <h4 className="text-small font-semibold leading-tight text-primary">
+          <h4 className="text-small font-semibold leading-tight text-primary-400">
             {item.name}
           </h4>
         </div>
       </CardHeader>
-      <CardBody className="bg-primary-700 flex flex-col items-center justify-center gap-2">
+      <CardBody className="flex flex-col items-center justify-center gap-2 bg-primary-700">
         <span className="flex items-center gap-1">
           <p>{item.currentDivine?.numerator}</p>
           <Image

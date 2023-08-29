@@ -94,7 +94,7 @@ const Navigation = () => {
           height={32}
           width={32}
         />
-        <p className="font-bold text-inherit">Divine Toll</p>
+        <p className="font-bold text-primary-300">Divine Toll</p>
       </NavbarBrand>
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         <NavbarItem>
