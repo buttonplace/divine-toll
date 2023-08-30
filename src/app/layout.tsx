@@ -5,6 +5,7 @@ import { Inter, Martel_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { StyleToggle } from "@/components/StyleToggle";
+import { Analytics } from "@vercel/analytics/react";
 
 const martel = Martel_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -26,8 +27,9 @@ export default function RootLayout({
       <body className={martel.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          
+
           {children}
+          <Analytics />
           <Footer />
         </ThemeProvider>
       </body>
