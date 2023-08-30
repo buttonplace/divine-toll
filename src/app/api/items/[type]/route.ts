@@ -27,6 +27,7 @@ export async function GET(
     return NextResponse.json(null);
   }
   let count = 0;
+  const start = performance.now();
   const sorted = response.sort((a, b) => {
     return a.stashIndex! - b.stashIndex!;
   });
@@ -39,6 +40,7 @@ export async function GET(
       items.push(undefined);
     }
   }
+  console.log(performance.now() - start);
   let width = 0;
   if (params.type == "scarab") {
     width = 8;
@@ -51,6 +53,5 @@ export async function GET(
   } else {
     width = 5;
   }
-
   return NextResponse.json({ width, items });
 }

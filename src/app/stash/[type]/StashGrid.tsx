@@ -2,6 +2,7 @@ import { ItemWithPrices } from "@/types/Item";
 import React from "react";
 import Item from "@/components/Item";
 import Placeholder from "@/components/Placeholder";
+import tailwindConfig from "../../../../tailwind.config";
 
 type Props = {
   items: ItemWithPrices[];
@@ -15,10 +16,16 @@ const StashGrid = ({ items, stashClass, query }: Props) => {
     <div className="flex w-full flex-col items-center px-4">
       <div className={stashClass}>
         {items.map((item, index, array) => {
-          if (!item) {
-            return <Placeholder key={index} />;
+          if (query) {
+            if (item && item.name.toLowerCase().includes(query.toLowerCase())) {
+              return <Item key={item?.name} item={item} />;
+            }
+          } else {
+            if (!item) {
+              return <Placeholder key={index} />;
+            }
+            return <Item key={item?.name} item={item} />;
           }
-          return <Item key={item?.name} item={item} />;
         })}
       </div>
     </div>

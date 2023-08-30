@@ -13,6 +13,17 @@ export const getAll = cache(async () => {
   return item;
 });
 
+export const getItem = cache(async (name: string) => {
+  const item = await prisma.item.findUnique({
+    where: { name: name },
+    include: {
+      currentChaos: true,
+      currentDivine: true,
+    },
+  });
+  return item;
+});
+
 export const getType = cache(async (type: string) => {
   const item = await prisma.item.findMany({
     where: { type: type },

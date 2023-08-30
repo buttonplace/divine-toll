@@ -10,6 +10,7 @@ import Placeholder from "../../../components/Placeholder";
 import Search from "./Search";
 import StashGrid from "./StashGrid";
 import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 import StashList from "./StashList";
 
@@ -27,6 +28,9 @@ const Stash = (
   // query: string;
 ) => {
   const [query, setQuery] = useState<string>("");
+  const [view, setView] = useState<boolean>(false);
+
+  const handleChecked = (e): any => {};
 
   const stashClass = !query
     ? `stash-${width}`
@@ -36,9 +40,14 @@ const Stash = (
       <div className="grid w-full grid-cols-3 ">
         <div className="spacer"></div>
         <Search setSearch={setQuery} query={query} />
-        <Switch className="ml-auto mr-6" />
+        <Switch
+          id="list-view"
+          className="ml-auto mr-6"
+          onCheckedChange={() => setView(!view)}
+        />
+        <Label htmlFor="airplane-mode">List View</Label>
       </div>
-      {query ? (
+      {view === true ? (
         <StashList items={items} query={query} />
       ) : (
         <StashGrid query={query} items={items} stashClass={stashClass} />
