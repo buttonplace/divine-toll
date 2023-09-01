@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { SiteFooter } from "@/components/site-footer";
 
 export default async function MainPage() {
   return (
@@ -17,11 +18,11 @@ export default async function MainPage() {
       </section>
       <section
         id="information"
-        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
+        className="container space-y-4 bg-slate-50 py-4 dark:bg-transparent md:py-6 lg:py-8"
       >
         <div
           id="divinetoll"
-          className="justify-aroundspace-y-4 mx-auto flex max-w-[58rem] flex-col items-center text-center"
+          className=" justify-aroundspace-y-4 mx-auto  flex max-w-[58rem] flex-col items-center p-4 text-center md:p-6"
         >
           <h2 className="font-serif text-3xl font-light leading-[1.1] sm:text-3xl md:text-6xl">
             Divine Toll
@@ -80,7 +81,7 @@ export default async function MainPage() {
         </div>
         <div
           id="arbitrage"
-          className="justify-aroundspace-y-4 mx-auto flex max-w-[58rem] flex-col items-center text-center"
+          className="  justify-aroundspace-y-4 mx-auto  flex max-w-[58rem] flex-col items-center p-4 text-center md:p-6"
         >
           <h2 className="font-serif text-3xl font-light leading-[1.1] sm:text-3xl md:text-6xl">
             Arbitrage
@@ -118,7 +119,7 @@ export default async function MainPage() {
         </div>
         <div
           id="confidence"
-          className="justify-aroundspace-y-4 mx-auto flex max-w-[58rem] flex-col items-center text-center"
+          className="justify-aroundspace-y-4 mx-auto flex max-w-[58rem] flex-col items-center p-4 text-center md:p-6"
         >
           <h2 className="font-serif text-3xl font-light leading-[1.1] sm:text-3xl md:text-6xl">
             Confidence
@@ -160,6 +161,26 @@ export default async function MainPage() {
               </h2>
             </div>
           </div>
+        </div>
+        <div
+          id="contact"
+          className="justify-aroundspace-y-4 mx-auto flex max-w-[58rem] flex-col items-center p-4 text-center md:p-6"
+        >
+          <h2 className="font-serif text-3xl font-light leading-[1.1] sm:text-3xl md:text-6xl">
+            Contact Me
+          </h2>
+          <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
+            If you have any questions, suggestions, or want to contribute,
+            contact me at{" "}
+            <a className="underline" href="mailto:timmy@divinetoll.com">
+              timmy@divinetoll.com
+            </a>
+          </h2>
+          <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
+            The Divine Toll database also offers a free API. If you&apos;re
+            interested in integrating it into your own app, or have any
+            questions about using it, let&apos;s chat.
+          </h2>
         </div>
       </section>
     </>
