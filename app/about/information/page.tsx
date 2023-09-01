@@ -133,7 +133,7 @@ export default async function MainPage() {
           <div className="mx-auto grid justify-center gap-6 md:max-w-[64rem] md:grid-cols-2">
             <div className="flex flex-col items-center justify-start rounded-md">
               <h3 className="px-2 py-4 font-sans text-xl font-light sm:text-xl md:text-2xl">
-                How it%apos;s calculated
+                How it&apos;s calculated
               </h3>
               <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Divine rate confidence is calculated using several metrics. Most
