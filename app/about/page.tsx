@@ -85,7 +85,7 @@ export default async function MainPage() {
                 hundreds of commonly traded items.{" "}
               </h2>
               <div className="px-4 py-2">
-                <h5 className="text-xs font-extralight text-muted-foreground/80">
+                <h5 className="text-xs font-light text-muted-foreground/90">
                   Price history has been tracked since the start of Ancestor,
                   but history display is still in development.
                 </h5>
@@ -100,22 +100,12 @@ export default async function MainPage() {
                 stash faster using our experimental stash view.
               </h2>
               <div className="px-4 py-2">
-                <h5 className="text-xs font-extralight text-muted-foreground/80">
+                <h5 className="text-xs font-light text-muted-foreground/90">
                   Stash view is still in development, but you can still use list
-                  view to bypass the API!
+                  view to bypass the API! List view sorts by stash position by
+                  default.
                 </h5>
               </div>
-              {/* <div className="px-4 py-2">
-                <Link
-                  href="/scarab"
-                  className={cn(
-                    buttonVariants({ size: "lg" }),
-                    "w-1/2 min-w-[13em]",
-                  )}
-                >
-                  Try it out!
-                </Link>{" "}
-              </div> */}
             </div>
           </div>
         </div>
