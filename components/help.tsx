@@ -1,4 +1,5 @@
-import React, { ReactElement } from "react";
+"use client";
+import React, { ReactElement, useEffect, useRef } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -18,16 +19,16 @@ type Props = {
 };
 
 const Help = ({ content }: Props) => {
-  const isMobile: boolean =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    );
-  if (isMobile) {
-    //Maybe decide based on mobile? But switching fully to popover for now.
-  }
+  let isMobile = useRef(false);
+  useEffect(() => {
+    isMobile.current =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+  }, []);
   return (
     <Popover>
-      <PopoverTrigger className="m-1 self-center hover:opacity-50">
+      <PopoverTrigger className="m-1 self-center opacity-70 hover:opacity-50">
         <Icons.help className="h-[1em] w-[1em]" />
       </PopoverTrigger>
       <PopoverContent

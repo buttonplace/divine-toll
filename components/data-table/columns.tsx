@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import Confidence from "@/components/Confidence";
+import Confidence from "@/components/confidence";
 import { Icons } from "../icons";
 import { useSearchParams } from "next/navigation";
 
@@ -31,6 +31,7 @@ import {
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { Separator } from "../ui/separator";
 import { cn } from "@/lib/utils";
+import Help from "../help";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -191,30 +192,22 @@ export const columns: ColumnDef<TableItem, any>[] = [
           <span className={cn(color, "flex h-12 items-center justify-center")}>
             {item.ninjaArbitrage.toFixed(1)}%
           </span>
-
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
-                <div className="flex h-[1em] w-[1em] items-center justify-center opacity-20">
-                  <Icons.help />
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="tracking-wide">
-                  The implied chaos rate of{"     "}
-                  <span>
-                    {(
-                      (item.divineNumerator / item.divineDenominator) *
-                      222
-                    ).toFixed(3)}{" "}
-                  </span>
-                  is {item.ninjaArbitrage.toFixed(1)}%{" "}
-                  {item.ninjaArbitrage > 0 ? "higher" : "lower"} than the
-                  PoENinja price of {item.ninjaRateValue.toFixed(1)}.
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Help
+            content={
+              <p className="tracking-wide">
+                The implied chaos rate of{"     "}
+                <span>
+                  {(
+                    (item.divineNumerator / item.divineDenominator) *
+                    222
+                  ).toFixed(3)}{" "}
+                </span>
+                is {item.ninjaArbitrage.toFixed(1)}%{" "}
+                {item.ninjaArbitrage > 0 ? "higher" : "lower"} than the PoENinja
+                price of {item.ninjaRateValue.toFixed(1)}.
+              </p>
+            }
+          />
         </div>
       );
     },

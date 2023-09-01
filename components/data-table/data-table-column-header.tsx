@@ -16,7 +16,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Car } from "lucide-react";
-import Help from "../help";
+import dynamic from "next/dynamic";
+const Help = dynamic(() => import("@/components/help"), { ssr: false });
 import { ReactElement } from "react";
 
 interface DataTableColumnHeaderProps<TData, TValue>

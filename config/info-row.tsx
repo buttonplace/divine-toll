@@ -1,4 +1,5 @@
-import Help from "@/components/help";
+import dynamic from "next/dynamic";
+const Help = dynamic(() => import("@/components/help"), { ssr: false });
 import { TableCell, TableRow } from "@/components/ui/table";
 import React from "react";
 

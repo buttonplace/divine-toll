@@ -30,7 +30,9 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import { Icons } from "@/components/icons";
-import Help from "@/components/help";
+import dynamic from "next/dynamic";
+const Help = dynamic(() => import("@/components/help"), { ssr: false });
+
 import InfoRow from "@/config/info-row";
 
 type Props = {
