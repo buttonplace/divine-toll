@@ -7,7 +7,7 @@ import Image from "next/image";
 export default async function MainPage() {
   return (
     <>
-      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+      <section className="space-y-3 pb-4 pt-3 md:pb-6 md:pt-5 lg:py-16">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Image
             src="/images/medbell.png"
