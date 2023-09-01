@@ -25,6 +25,34 @@ export const getItem = cache(async (name: string) => {
   return item;
 });
 
+export const getDivine = cache(async (): Promise<number> => {
+  console.log("GETITING DIVINE PRICE!x`");
+  const item = await prisma.item.findUnique({
+    where: { name: "Divine Orb" },
+  });
+  if (!item) return 220;
+  if (
+    item.ninjaChaos &&
+    item.divineTollChaosNumerator &&
+    item.divineTollChaosDenominator
+  ) {
+    return Math.round(
+      (item.ninjaChaos +
+        item.divineTollChaosNumerator / item.divineTollChaosDenominator) /
+        2,
+    );
+  }
+  if (item.ninjaChaos) {
+    return Math.round(item.ninjaChaos);
+  }
+  if (item.divineTollChaosNumerator && item.divineTollChaosDenominator) {
+    return Math.round(
+      item.divineTollChaosNumerator / item.divineTollChaosDenominator,
+    );
+  }
+  return 220;
+});
+
 export const getType = cache(async (type: string) => {
   const item = await prisma.item.findMany({
     where: { type: type },

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
+import DivineRate from "./divine-rate";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -33,6 +34,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             Gear Games in any way.
           </p>
         </div>
+        <DivineRate />
         <ModeToggle />
       </div>
     </footer>

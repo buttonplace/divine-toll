@@ -11,6 +11,8 @@ import { Item } from "types";
 import dynamic from "next/dynamic";
 import { ColumnDef, Table } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/data-table";
+import DivineRate from "@/components/divine-rate";
+import { getDivine } from "@/lib/serverutils";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
@@ -19,9 +21,11 @@ type Props = {
   params: { type: string };
 };
 export default async function TypePage({ params: { type } }: Props) {
+  const divine = await getDivine();
   const items: Item[] = await prisma.item.findMany({
     where: {
       type: type,
+      ignored: false,
     },
     orderBy: {
       stashIndex: "asc",
@@ -48,15 +52,16 @@ export default async function TypePage({ params: { type } }: Props) {
       ninjaRateValue: item.ninjaChaos,
       chaosConfidence: item.divineTollChaosConfidence,
       updatedAt: item.divineUpdatedAt,
-      arbitrage: relativeDifference(divineRate * 222, chaosRate),
-      ninjaArbitrage: relativeDifference(divineRate * 222, item.ninjaChaos),
+      arbitrage: relativeDifference(divineRate * divine, chaosRate),
+      ninjaArbitrage: relativeDifference(divineRate * divine, item.ninjaChaos),
       divineVariance: item.divineTollDivineVariance,
       chaosVariance: item.divineTollChaosVariation,
+      divineRate: divine,
     };
   });
   return (
     <div>
-      <div className="flex flex-col pt-5">
+      <div className="flex flex-col  items-center justify-center pt-5">
         <div className="flex items-center justify-center">
           <Image
             src={`/images/${type}.png`}
@@ -68,6 +73,7 @@ export default async function TypePage({ params: { type } }: Props) {
         <h1 className="flex items-center justify-center font-serif text-xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           {type}
         </h1>
+        <DivineRate rate={divine} />
       </div>
       {data.length > 0 ? (
         <DataTable data={data} columns={columns} />

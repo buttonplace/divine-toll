@@ -66,7 +66,7 @@ const Confidence = ({ confidence }: Props) => {
         )}
         {confidence <= 60 && (
           <Link href="/about/information#confidence">
-            Low confidence. Click to learn more.
+            Low confidence.
             <span className="text-primary underline"> Learn More</span>
           </Link>
         )}

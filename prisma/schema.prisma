@@ -35,6 +35,7 @@ model Item {
   chaosHistory               ChaosPrice[]  @relation("chaosHistory")
   currentDivine              DivinePrice?  @relation("currentDivine")
   divineHistory              DivinePrice[] @relation("divineHistory")
+  ignored                   Boolean       @default(false)
 
   @@unique([stashIndex, type])
   @@index([type])

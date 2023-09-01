@@ -69,7 +69,7 @@ export default async function MainPage() {
               </h2>
               <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Average players can use arbitrage values to check how much value
-                they are losing by selling items to bulk resellers. FYI:
+                they are losing by selling items to bulk resellers. Spoiler:
                 it&apos;s <span className="text-red-500">a lot</span>.
               </h2>
               <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">

@@ -3,20 +3,18 @@
 import * as React from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-
 import { MainNavItem } from "types";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
 import { MobileNav } from "@/components/mobile-nav";
-import Image from "next/image";
 
 interface MainNavProps {
   items?: MainNavItem[];
   children?: React.ReactNode;
 }
 
-export function MainNav({ items, children }: MainNavProps) {
+export function MainNav({ items, children, divine }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 

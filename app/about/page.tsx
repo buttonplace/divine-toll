@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
+import DivineRate from "@/components/divine-rate";
 
 export default async function MainPage() {
   return (

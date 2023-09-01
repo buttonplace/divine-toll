@@ -30,8 +30,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { Separator } from "../ui/separator";
-import { cn } from "@/lib/utils";
+import { cn, relativeDifference } from "@/lib/utils";
 import Help from "../help";
+import { relative } from "path";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -61,6 +62,7 @@ export type TableItem = {
   divineDenominator: number;
   chaosNumerator: number;
   chaosDenominator: number;
+  divineRate: number;
 };
 
 export const columns: ColumnDef<TableItem, any>[] = [
@@ -187,6 +189,13 @@ export const columns: ColumnDef<TableItem, any>[] = [
           : item.ninjaArbitrage <= -10
           ? "text-green-500"
           : "text-red-500";
+      const pDiff = relativeDifference(
+        item.divineRateValue * item.divineRate,
+        item.ninjaRateValue,
+      ).toFixed(1);
+      const divineRate = item.divineRate;
+      const cRate = (item.divineRateValue * divineRate).toFixed(1);
+
       return (
         <div className="text-md flex items-center justify-center space-x-1 md:text-lg lg:text-xl">
           <span className={cn(color, "flex h-12 items-center justify-center")}>
@@ -195,16 +204,10 @@ export const columns: ColumnDef<TableItem, any>[] = [
           <Help
             content={
               <p className="tracking-wide">
-                The implied chaos rate of{"     "}
-                <span>
-                  {(
-                    (item.divineNumerator / item.divineDenominator) *
-                    222
-                  ).toFixed(3)}{" "}
-                </span>
-                is {item.ninjaArbitrage.toFixed(1)}%{" "}
-                {item.ninjaArbitrage > 0 ? "higher" : "lower"} than the PoENinja
-                price of {item.ninjaRateValue.toFixed(1)}.
+                {item.divineNumerator} / {item.divineDenominator} implies a
+                Chaos price of {cRate} which is {pDiff}%{" "}
+                {item.ninjaArbitrage > 0 ? "higher" : "lower"} than{" "}
+                {item.ninjaRateValue.toFixed(1)}
               </p>
             }
           />
