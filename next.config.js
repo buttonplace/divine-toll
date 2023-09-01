@@ -6,11 +6,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/stash',
-        destination: '/stash/currency',
+        source: "/",
+        destination: "/about/",
         permanent: true,
       },
-    ]
+    ];
   },
 };
 
