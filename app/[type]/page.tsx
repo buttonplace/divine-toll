@@ -9,6 +9,8 @@ import Image from "next/image";
 import { Item } from "types";
 
 import dynamic from "next/dynamic";
+import { ColumnDef, Table } from "@tanstack/react-table";
+import DataTable from "@/components/data-table/data-table";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
@@ -68,7 +70,7 @@ export default async function TypePage({ params: { type } }: Props) {
         </h1>
       </div>
       {data.length > 0 ? (
-        <NoSSR data={data} columns={columns} />
+        <DataTable data={data} columns={columns} />
       ) : (
         // <DataTable data={data} columns={columns} />
         <div>No items found.</div>

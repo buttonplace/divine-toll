@@ -16,17 +16,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Car } from "lucide-react";
+import Help from "../help";
+import { ReactElement } from "react";
 
 interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;
   title: string;
+  helpContent?: ReactElement | string;
 }
 
 export function DataTableColumnHeader<TData, TValue>({
   column,
   title,
   className,
+  helpContent,
 }: DataTableColumnHeaderProps<TData, TValue>) {
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;
@@ -64,6 +68,7 @@ export function DataTableColumnHeader<TData, TValue>({
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       )}
+      {helpContent && <Help content={helpContent} />}
     </div>
   );
 }

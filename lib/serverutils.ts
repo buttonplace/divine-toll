@@ -1,6 +1,6 @@
 import { cache } from "react";
-import { prisma } from "@/app/api/db";
-import { ItemWithPrices } from "@/types/Item";
+import { prisma } from "@/lib/db";
+import { Item } from "types";
 
 export const revalidate = 3600; // revalidate the data at most every hour
 
@@ -36,7 +36,7 @@ export const getType = cache(async (type: string) => {
   return item;
 });
 
-export const getData = async (): Promise<ItemWithPrices[]> => {
+export const getData = async (): Promise<Item[]> => {
   await new Promise((r) => setTimeout(r, 5000));
   return await prisma.item.findMany({
     where: {

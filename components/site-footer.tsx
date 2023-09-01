@@ -29,7 +29,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             >
               tech
             </Link>
-            . This product isn&apos;t affiliated with or endorsed by Grinding
+            . Divine Toll isn&apos;t affiliated with or endorsed by Grinding
             Gear Games in any way.
           </p>
         </div>

@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   url: "https://www.divinetoll.com",
   ogImage: "https://divinetoll.com/medbell.png",
   links: {
-    twitter: "https://twitter.com/teatrey",
+    // twitter: "https://twitter.com/teatrey",
     github: "https://github.com/teatrey",
   },
 };

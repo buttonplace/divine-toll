@@ -20,7 +20,6 @@ export default async function AboutLayout({ children }: MarketingLayoutProps) {
         </div>
       </header>
       <Separator className="" orientation="horizontal" />
-
       <main className="flex-1">{children}</main>
       <SiteFooter />
     </div>

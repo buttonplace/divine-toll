@@ -66,7 +66,7 @@ export default function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useWindowSize();
 
   const table = useReactTable({
     data,
@@ -136,14 +136,18 @@ export default function DataTable<TData, TValue>({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
+                  {isClient
+                    ? row
+                        .getVisibleCells()
+                        .map((cell) => (
+                          <TableCell key={cell.id}>
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext(),
+                            )}
+                          </TableCell>
+                        ))
+                    : null}
                 </TableRow>
               ))
             ) : (

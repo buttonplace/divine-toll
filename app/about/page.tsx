@@ -19,8 +19,8 @@ export default async function MainPage() {
           <h1 className="text-back flex items-center justify-center font-serif text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="z-10">Divine Toll</span>{" "}
           </h1>
-          <p className="text-muted-foreground max-w-[42rem] font-sans font-light leading-normal sm:text-xl sm:leading-8">
-            A pricing index for the Path of Exile Divine Orb exchange.
+          <p className="max-w-[42rem] font-sans font-light leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+            A price index for the Path of Exile Divine Orb exchange.
           </p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default async function MainPage() {
               <h3 className="px-2 py-4 font-sans text-xl font-light sm:text-xl md:text-2xl">
                 Pricing data, built from the bulk exchange
               </h3>
-              <h2 className="text-muted-foreground md:text-md px-4 py-2 text-sm font-medium">
+              <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Divine Toll pulls pricing data from the official Divine Orb bulk
                 exchange and uses that data to calculate the market value of
                 hundreds of commonly traded items.{" "}
@@ -58,14 +58,14 @@ export default async function MainPage() {
               <h3 className="px-2 py-4 font-sans text-xl font-light sm:text-xl md:text-2xl">
                 See the difference between the Chaos and Divine exchange
               </h3>
-              <h2 className="text-muted-foreground md:text-md px-4 py-2 text-sm font-medium">
+              <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Avoid losing currency to bulk resellers by easily seeing the
                 current price difference between the Chaos and Divine Orb market
                 for every item in our database.{" "}
               </h2>
               <div className="px-4 py-2">
                 <Link
-                  href="/scarab"
+                  href="/about/information#divinetoll"
                   className={cn(
                     buttonVariants({ size: "lg" }),
                     "w-1/2 min-w-[13em]",
@@ -79,13 +79,13 @@ export default async function MainPage() {
               <h3 className="px-2 py-4 font-sans text-xl font-light sm:text-xl md:text-2xl">
                 Hourly price history
               </h3>
-              <h2 className="text-muted-foreground md:text-md px-4 py-2 text-sm font-medium">
+              <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Divine Toll pulls pricing data from the official Divine Orb bulk
                 exchange and uses that data to calculate the market value of
                 hundreds of commonly traded items.{" "}
               </h2>
               <div className="px-4 py-2">
-                <h5 className="text-muted-foreground/80 text-xs font-extralight">
+                <h5 className="text-xs font-extralight text-muted-foreground/80">
                   Price history has been tracked since the start of Ancestor,
                   but history display is still in development.
                 </h5>
@@ -95,16 +95,17 @@ export default async function MainPage() {
               <h3 className="px-2 py-4 font-sans text-xl font-light sm:text-xl md:text-2xl">
                 Stash view, so you can list faster
               </h3>
-              <h2 className="text-muted-foreground md:text-md px-4 py-2 text-sm font-medium">
+              <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Avoid rate-limits from the official trade API and price your
-                stash faster using our experimental stash view
+                stash faster using our experimental stash view.
               </h2>
               <div className="px-4 py-2">
-                <h5 className="text-muted-foreground/80 text-xs font-extralight">
-                  Stash view is still in development.
+                <h5 className="text-xs font-extralight text-muted-foreground/80">
+                  Stash view is still in development, but you can still use list
+                  view to bypass the API!
                 </h5>
               </div>
-              <div className="px-4 py-2">
+              {/* <div className="px-4 py-2">
                 <Link
                   href="/scarab"
                   className={cn(
@@ -114,7 +115,7 @@ export default async function MainPage() {
                 >
                   Try it out!
                 </Link>{" "}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

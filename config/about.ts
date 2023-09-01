@@ -18,5 +18,10 @@ export const aboutConfig: AboutConfig = {
       href: "/fragment",
       icon: "/fragment",
     },
+    {
+      title: "More Info",
+      href: "/about/information",
+      icon: "/divinetoll",
+    },
   ],
 };

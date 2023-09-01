@@ -11,6 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Confidence from "@/components/Confidence";
 import { Icons } from "../icons";
+import { useSearchParams } from "next/navigation";
+
 import {
   Tooltip,
   TooltipContent,
@@ -60,9 +62,10 @@ export type TableItem = {
   chaosDenominator: number;
 };
 
-export const columns: ColumnDef<TableItem>[] = [
+export const columns: ColumnDef<TableItem, any>[] = [
   {
     accessorKey: "name",
+    // accessorFn: (item) => item.divineRateValue.toFixed(3),
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -88,12 +91,16 @@ export const columns: ColumnDef<TableItem>[] = [
 
   {
     accessorKey: "divineRateValue",
+    // accessorFn: (item) => item.divineRateValue.toFixed(3),
     id: "Divine Rate",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
         className="justify-center"
         title="Rate"
+        helpContent={
+          "The Divine Toll recommended Divine Orb price for the item."
+        }
       />
     ),
     cell: ({ row }) => {
@@ -115,7 +122,9 @@ export const columns: ColumnDef<TableItem>[] = [
           <div className="flex h-[2em] w-[2em] items-center justify-center">
             <Image src={item.icon} alt={item.name} width={32} height={32} />
           </div>
-          <Confidence confidence={Math.min(99, item.divineConfidence)} />
+          <Confidence
+            confidence={Math.max(0, Math.min(99, item.divineConfidence))}
+          />
         </div>
         // ); // <Icons.divine />
         // <h2 text-lg>{item.divineNumerator} </h2>
@@ -135,6 +144,7 @@ export const columns: ColumnDef<TableItem>[] = [
         column={column}
         className="justify-center"
         title="Price"
+        helpContent={"The current Chaos price of the item."}
       />
     ),
     cell: ({ row }) => {
@@ -153,21 +163,29 @@ export const columns: ColumnDef<TableItem>[] = [
   },
   {
     accessorKey: "ninjaArbitrage",
+    // accessorFn: (item) => item.divineRateValue.toFixed(3),
+
     id: "Arbitrage",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
         className="justify-center"
         title="Arbitrage"
+        helpContent={
+          <Link className="underline" href="/about/information#arbitrage">
+            Learn more
+          </Link>
+        }
       />
     ),
     cell: ({ row }) => {
       const item = row.original;
       const color =
-        item.ninjaArbitrage > 25 || item.ninjaArbitrage < -25
-          ? "text-red-500"
-          : "text-green-500";
-      ``;
+        item.ninjaArbitrage < 10 && item.ninjaArbitrage > -10
+          ? "text-orange-500"
+          : item.ninjaArbitrage <= -10
+          ? "text-green-500"
+          : "text-red-500";
       return (
         <div className="text-md flex items-center justify-center space-x-1 md:text-lg lg:text-xl">
           <span className={cn(color, "flex h-12 items-center justify-center")}>
@@ -204,11 +222,14 @@ export const columns: ColumnDef<TableItem>[] = [
   {
     accessorKey: "updatedAt",
     id: "Price Age",
+    // accessorFn: (item) => item.divineRateValue.toFixed(3),
+
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
         className="justify-center"
         title="Price Age"
+        helpContent={"The time since the price was last updated."}
       />
     ),
     cell: ({ row }) => {
@@ -229,6 +250,8 @@ export const columns: ColumnDef<TableItem>[] = [
   },
   {
     id: "actions",
+    // accessorFn: (item) => item.divineRateValue.toFixed(3),
+
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -237,12 +260,13 @@ export const columns: ColumnDef<TableItem>[] = [
       />
     ),
     cell: ({ row }) => {
-      const payment = row.original;
+      const item = row.original;
+      console.log(`${encodeURIComponent(item.name)}`);
       return (
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger>
-              <Link href="/about">
+            <TooltipTrigger className="flex justify-center">
+              <Link href={`/details/${encodeURIComponent(item.name)}`}>
                 <Button className="h-auto w-[2em]" variant="ghost">
                   <div>
                     <Icons.chevronRight />
@@ -250,7 +274,7 @@ export const columns: ColumnDef<TableItem>[] = [
                 </Button>
               </Link>
             </TooltipTrigger>
-            <TooltipContent>Hello</TooltipContent>
+            <TooltipContent>Visit the item details page</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       );
