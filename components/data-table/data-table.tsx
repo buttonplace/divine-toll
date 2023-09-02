@@ -86,7 +86,7 @@ export default function DataTable<TData, TValue>({
   });
 
   useEffect(() => {
-    console.log("width", width);
+    // console.log("width", width);
     if (width < 768) {
       //768 is the breakpoint for mobile
       table.getColumn("Price Age")?.toggleVisibility(false);

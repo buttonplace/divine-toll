@@ -40,9 +40,9 @@ type Props = {
 };
 
 export default async function MainPage({ params: { nameURI } }: Props) {
-  console.log(nameURI);
+  // console.log(nameURI);
   const name = decodeURIComponent(`${nameURI}`);
-  console.log(name);
+  // console.log(name);
 
   const item: ItemWithPrices | null = await prisma.item.findUnique({
     where: {
@@ -92,10 +92,10 @@ export default async function MainPage({ params: { nameURI } }: Props) {
           </h3>
           <Image
             src={item.icon}
-            alt="Divine Toll Logo"
-            width={256}
-            height={256}
-            className=" h-auto w-auto"
+            alt={item.name}
+            width={64}
+            height={64}
+            className=""
           />
         </div>
       </section>

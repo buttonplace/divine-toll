@@ -40,10 +40,14 @@ export type NavItem = {
   title: string;
   href: string;
   disabled?: boolean;
-  icon: Image;
+  icon: string;
 };
 
-export type MainNavItem = NavItem;
+export type MainNavItem = {
+  title?: string;
+  icon?: string;
+  items: NavItem[];
+};
 
 export type SidebarNavItem = {
   title: string;
@@ -72,16 +76,6 @@ export type SiteConfig = {
   };
 };
 
-export type DocsConfig = {
-  mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
-};
-
 export type AboutConfig = {
   mainNav: MainNavItem[];
-};
-
-export type DashboardConfig = {
-  mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
 };

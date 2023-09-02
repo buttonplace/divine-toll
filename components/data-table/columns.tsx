@@ -257,7 +257,7 @@ export const columns: ColumnDef<TableItem, any>[] = [
     ),
     cell: ({ row }) => {
       const item = row.original;
-      console.log(`${encodeURIComponent(item.name)}`);
+      // console.log(`${encodeURIComponent(item.name)}`);
       return (
         <TooltipProvider>
           <Tooltip>

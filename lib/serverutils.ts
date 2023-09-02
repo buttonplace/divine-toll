@@ -26,7 +26,7 @@ export const getItem = cache(async (name: string) => {
 });
 
 export const getDivine = cache(async (): Promise<number> => {
-  console.log("GETITING DIVINE PRICE!x`");
+  // console.log("GETITING DIVINE PRICE!x`");
   const item = await prisma.item.findUnique({
     where: { name: "Divine Orb" },
   });

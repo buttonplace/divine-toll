@@ -13,14 +13,17 @@ import { ColumnDef, Table } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/data-table";
 import DivineRate from "@/components/divine-rate";
 import { getDivine } from "@/lib/serverutils";
+import { iconRoute } from "@/config/icon-route";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
 
 type Props = {
-  params: { type: string };
+  params: { typeURI: string };
 };
-export default async function TypePage({ params: { type } }: Props) {
+export default async function TypePage({ params: { typeURI } }: Props) {
+  const type = decodeURIComponent(`${typeURI}`);
+  // console.log(type);
   const divine = await getDivine();
   const items: Item[] = await prisma.item.findMany({
     where: {
@@ -63,12 +66,14 @@ export default async function TypePage({ params: { type } }: Props) {
     <div>
       <div className="flex flex-col  items-center justify-center pt-5">
         <div className="flex items-center justify-center">
-          <Image
-            src={`/images/${type}.png`}
-            alt={type}
-            width={64}
-            height={64}
-          />
+          {(
+            <Image
+              src={`/images/${type}.png`}
+              alt={type}
+              width={64}
+              height={64}
+            />
+          ) || null}
         </div>
         <h1 className="flex items-center justify-center font-serif text-xl font-bold sm:text-3xl md:text-4xl lg:text-5xl">
           {type}

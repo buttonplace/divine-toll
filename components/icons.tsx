@@ -53,6 +53,42 @@ export const Icons = {
   delve: () => (
     <Image src="/images/delve.png" alt="Delve Icon" width={32} height={32} />
   ),
+  currency: () => (
+    <Image
+      src="/images/currency.png"
+      alt="Currency Icon"
+      width={32}
+      height={32}
+    />
+  ),
+  basic: () => (
+    <Image src="/images/medbell.png" alt="Basic Icon" width={32} height={32} />
+  ),
+  exotic: () => (
+    <Image src="/images/medbell.png" alt="Exotic Icon" width={32} height={32} />
+  ),
+  misc: () => (
+    <Image src="/images/medbell.png" alt="Misc Icon" width={32} height={32} />
+  ),
+  oil: () => (
+    <Image src="/images/oil.png" alt="Oil Icon" width={32} height={32} />
+  ),
+  essence: () => (
+    <Image
+      src="/images/essence.png"
+      alt="Essence Icon"
+      width={32}
+      height={32}
+    />
+  ),
+  catalyst: () => (
+    <Image
+      src="/images/medbell.png"
+      alt="Catalyst Icon"
+      width={32}
+      height={32}
+    />
+  ),
   fragment: () => (
     <Image
       src="/images/fragment.png"
