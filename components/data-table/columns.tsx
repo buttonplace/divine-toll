@@ -99,10 +99,10 @@ export const columns: ColumnDef<TableItem, any>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        className="justify-center"
-        title="Rate"
+        className="flex justify-center"
+        title="Bulk Rate"
         helpContent={
-          "The Divine Toll recommended Divine Orb price for the item."
+          "The bulk Divine rate of the item, derived only from the Divine exchange."
         }
       />
     ),
@@ -140,14 +140,44 @@ export const columns: ColumnDef<TableItem, any>[] = [
     },
   },
   {
+    accessorKey: "impliedRateValue",
+    id: "Implied Price",
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        className="justify-center"
+        title="Bulk Price"
+        helpContent={"The price implied by the bulk Divine rate of the item."}
+      />
+    ),
+    cell: ({ row }) => {
+      const item = row.original;
+      return (
+        <div className="text-md flex items-center justify-center space-x-1 md:text-lg lg:text-xl">
+          <span className="flex h-12 items-center justify-center">
+            {(
+              (item.divineNumerator * item.divineRate) /
+              item.divineDenominator
+            ).toFixed(1)}
+          </span>
+          <div className="flex h-[2em] w-[2em] items-center justify-center">
+            <Icons.chaos />
+          </div>
+        </div>
+      );
+    },
+  },
+  {
     accessorKey: "ninjaRateValue",
     id: "Chaos Price",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
         className="justify-center"
-        title="Price"
-        helpContent={"The current Chaos price of the item."}
+        title="Individual Price"
+        helpContent={
+          "The current Chaos price of the item, derived from PoENinja and the Chaos exchange."
+        }
       />
     ),
     cell: ({ row }) => {
@@ -175,9 +205,14 @@ export const columns: ColumnDef<TableItem, any>[] = [
         className="justify-center"
         title="Arbitrage"
         helpContent={
-          <Link className="underline" href="/about/information#arbitrage">
-            Learn more
-          </Link>
+          <div>
+            {
+              "The difference between the Bulk Price and the Individual Price, i.e. how much you'd lose by selling to resellers."
+            }
+            <Link className="underline" href="/about/information#arbitrage">
+              Learn more
+            </Link>
+          </div>
         }
       />
     ),
