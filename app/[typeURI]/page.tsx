@@ -14,6 +14,7 @@ import DataTable from "@/components/data-table/data-table";
 import DivineRate from "@/components/divine-rate";
 import { getDivine } from "@/lib/serverutils";
 import { iconRoute } from "@/config/icon-route";
+import { Card, CardContent } from "@/components/ui/card";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
@@ -79,6 +80,30 @@ export default async function TypePage({ params: { typeURI } }: Props) {
           {type}
         </h1>
         <DivineRate rate={divine} />
+        {type === "essence" && (
+          <Card className="bg-yellow-600">
+            <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
+              Screaming tier essences are rarely traded and are therefore
+              incredibly volatile. They will be ignored in an update soon.
+            </CardContent>
+          </Card>
+        )}
+        {type === "oil" && (
+          <Card className="bg-yellow-600">
+            <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
+              Low tier oils are rarely traded and are therefore incredibly
+              volatile. They will be ignored in an update soon.
+            </CardContent>
+          </Card>
+        )}
+        {type === "incubator" && (
+          <Card className="bg-yellow-600">
+            <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
+              Cheap incubators are rarely traded and are therefore incredibly
+              volatile. They will be ignored in an update soon.
+            </CardContent>
+          </Card>
+        )}
       </div>
       {data.length > 0 ? (
         <DataTable data={data} columns={columns} />
