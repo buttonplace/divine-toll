@@ -95,7 +95,7 @@ export const columns: ColumnDef<TableItem, any>[] = [
   {
     accessorKey: "divineRateValue",
     // accessorFn: (item) => item.divineRateValue.toFixed(3),
-    id: "Divine Rate",
+    id: "Bulk Rate",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
