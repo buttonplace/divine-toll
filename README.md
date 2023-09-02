@@ -1,4 +1,4 @@
-# <span><img src="./public/assets/medbell.png" alt="drawing" style="height: 1em"/> Divine Toll <img src="./public/assets/medbell.png" alt="drawing" style="height: 1em"/></span>
+# <span><img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/> Divine Toll <img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/></span>
 
 A Path of Exile Price Index
 
