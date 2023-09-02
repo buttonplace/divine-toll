@@ -1,4 +1,4 @@
-#Note, this repo is for the Divine Toll website. The Divine Toll algorithm and the Divine Toll API are closed source and not included in this repo.
+## Note, this repo is for the Divine Toll website. The Divine Toll algorithm and the Divine Toll API are closed source and not included in this repo.
 
 # <span><img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/> Divine Toll <img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/></span>
 
