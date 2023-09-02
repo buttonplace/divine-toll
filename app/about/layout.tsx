@@ -12,15 +12,6 @@ interface MarketingLayoutProps {
 }
 
 export default async function AboutLayout({ children }: MarketingLayoutProps) {
-  const response = await fetch(
-    process.env.NEXT_PUBLIC_API_URL! + "/api/divine/",
-    {
-      method: "GET",
-      next: { revalidate: 120 },
-    },
-  ).then((res) => res.json());
-
-  const divine2: number = await getDivine();
   return (
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">

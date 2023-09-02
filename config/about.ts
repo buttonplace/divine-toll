@@ -10,12 +10,12 @@ export const aboutConfig: AboutConfig = {
         {
           title: "Basic",
           href: "basic currency",
-          icon: "currency",
+          icon: "basic currency",
         },
         {
           title: "Exotic",
           href: "exotic currency",
-          icon: "exotic",
+          icon: "exotic currency",
         },
       ],
     },

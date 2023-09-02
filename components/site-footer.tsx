@@ -16,7 +16,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <p className="text-center text-sm leading-loose md:text-left">
             Built by{" "}
             <a
-              href={siteConfig.links.github}
+              href={"https://www.github.com/teatrey"}
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
