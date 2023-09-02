@@ -141,7 +141,7 @@ export const columns: ColumnDef<TableItem, any>[] = [
   },
   {
     accessorKey: "impliedRateValue",
-    id: "Implied Price",
+    id: "Bulk Price",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
@@ -169,7 +169,7 @@ export const columns: ColumnDef<TableItem, any>[] = [
   },
   {
     accessorKey: "ninjaRateValue",
-    id: "Chaos Price",
+    id: "Individual Price",
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
