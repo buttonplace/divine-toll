@@ -119,7 +119,7 @@ export function MainNav({ items, children }: MainNavProps) {
           })}
         <Link
           key={"info"}
-          href={`about/information`}
+          href={`/about/information`}
           className={cn(
             "flex flex-col  items-center font-sans text-lg font-medium text-foreground/60 transition-colors hover:text-foreground/80 sm:text-sm",
           )}

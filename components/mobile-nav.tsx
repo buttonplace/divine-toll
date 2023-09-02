@@ -57,7 +57,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
           ))}
           <Link
             key={"info"}
-            href={`about/information`}
+            href={`/about/information`}
             className={cn(
               "flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline",
             )}
