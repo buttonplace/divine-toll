@@ -172,8 +172,8 @@ export default async function MainPage() {
           <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
             If you have any questions, suggestions, or want to contribute,
             contact me at{" "}
-            <a className="underline" href="mailto:teatrey@divinetoll.com">
-              teatrey@divinetoll.com
+            <a className="underline" href="mailto:timmy@divinetoll.com">
+              timmy@divinetoll.com
             </a>
           </h2>
           <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
