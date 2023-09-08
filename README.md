@@ -2,7 +2,7 @@
 
 # <span><img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/> Divine Toll <img src="./public/images/medbell.png" alt="drawing" style="height: 1em"/></span>
 
-A Path of Exile Price Index
+A Path of Exile Price Index built for bulk
 
 ## Features
 
