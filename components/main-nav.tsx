@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icon, Icons } from "@/components/icons";
 import { MobileNav } from "@/components/mobile-nav";
+import { signIn, signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -133,6 +134,7 @@ export function MainNav({ items, children }: MainNavProps) {
           />
           More Info
         </Link>
+        {/* <AuthButton /> */}
       </nav>
       <button
         className="flex items-center space-x-2 md:hidden"
