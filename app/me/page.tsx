@@ -8,6 +8,7 @@
 // import Image from "next/image";
 // import { Item } from "types";
 // "use client";
+import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
 
 // import { getToken } from "next-auth/jwt";
@@ -58,6 +59,10 @@ import { NextRequest } from "next/server";
 // };
 
 export default async function TypePage() {
+  const s = await getServerSession();
+  console.log(s);
+  return <div>{JSON.stringify(s)}</div>;
+  // console.log(s);
   const res = await fetch("/api/try", {
     method: "POST",
     body: JSON.stringify({ name: "test" }),
