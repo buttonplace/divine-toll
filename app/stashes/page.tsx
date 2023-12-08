@@ -78,7 +78,7 @@ export default function TypePage() {
       });
       const data = await res.json();
       if (data.status === 200) {
-        if (data.stashes.length === 0) {
+        if (!data.json.stashes) {
           console.log("No stashes found");
           return;
         }
