@@ -3,6 +3,7 @@ import { getToken } from "next-auth/jwt";
 import { getSession } from "next-auth/react";
 
 export async function GET(request: NextRequest) {
+  console.log("TRYING!");
   const data = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const json = await data.json();
   const session = await getSession();

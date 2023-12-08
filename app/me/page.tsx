@@ -59,9 +59,7 @@ import { NextRequest } from "next/server";
 
 export default function TypePage() {
   const makeApiCall = async () => {
-    const res = await fetch("/api/try", {
-      method: "GET",
-    });
+    const res = await fetch("/api/try");
     const data = await res.json();
     console.log(data);
   };
