@@ -30,9 +30,11 @@ export async function POST(request: NextRequest) {
         "User-Agent": "OAuth divinetoll/1.2 (contact:teatreydev@gmail.com)",
       },
     });
+    const json = await data.json();
+    console.log(json);
     return NextResponse.json({
       status: 200,
-      data,
+      json,
     });
   }
 
