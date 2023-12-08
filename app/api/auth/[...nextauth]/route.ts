@@ -82,6 +82,7 @@ const authOptions = {
       console.log(user);
       console.log(account);
       console.log(profile);
+      return token;
     },
     async session({ session, token }) {
       console.log(`SESSION: ${JSON.stringify(session)} `);
