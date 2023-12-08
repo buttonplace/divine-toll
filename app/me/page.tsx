@@ -7,9 +7,10 @@
 // import { Icons } from "@/components/icons";
 // import Image from "next/image";
 // import { Item } from "types";
-// "use client";
+"use client";
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
+import { use, useEffect, useState } from "react";
 
 // import { getToken } from "next-auth/jwt";
 
@@ -58,22 +59,27 @@ import { NextRequest } from "next/server";
 //   }
 // };
 
-export default async function TypePage() {
-  const s = await getServerSession();
-  console.log(s);
-  return <div>{JSON.stringify(s)}</div>;
-  // console.log(s);
-  const res = await fetch("/api/try", {
-    method: "POST",
-    body: JSON.stringify({ name: "test" }),
-  });
-  const data = await res.json();
-  console.log(data);
-  console.log("tested");
+export default function TypePage() {
+  const [stashes, setStashes] = useState("");
+
+  useEffect(() => {
+    async function getStashes() {
+      const res = await fetch("/api/try", {
+        method: "POST",
+        body: JSON.stringify({ name: "test" }),
+      });
+      const data = await res.json();
+      if (data.status === 200) {
+        console.log(data);
+        console.log("STASH SUCCESS");
+        setStashes(data);
+      }
+    }
+  }, []);
   return (
     <div>
-      {data.status == 200 ? (
-        <div>You are logged in with AT {data.token}</div>
+      {stashes != "" ? (
+        <div>You are logged in with AT {stashes}</div>
       ) : (
         <div>you are not logged in</div>
       )}

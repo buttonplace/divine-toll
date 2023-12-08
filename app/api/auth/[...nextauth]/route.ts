@@ -94,6 +94,18 @@ const authOptions = {
       // session.user = token;
       console.log(`SESSION: ${JSON.stringify(session)} `);
       console.log(`Access: ${JSON.stringify(token.accessToken)}`);
+
+      // console.log("here2");
+      // console.log(token);
+      // console.log(session);
+      // if (!session?.user || !token?.accessToken) {
+      //   return session;
+      // }
+
+      // session.accessToken = token.account.accessToken;
+
+      // return session;
+
       return session;
     },
   },
