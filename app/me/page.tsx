@@ -7,6 +7,8 @@
 // import { Icons } from "@/components/icons";
 // import Image from "next/image";
 // import { Item } from "types";
+"use client";
+import { NextRequest } from "next/server";
 
 // import { getToken } from "next-auth/jwt";
 
@@ -55,7 +57,21 @@
 //   }
 // };
 
-export default async function TypePage() {
+export default function TypePage() {
+  const makeApiCall = async () => {
+    const res = await fetch("/api/try", {
+      method: "GET",
+    });
+    const data = await res.json();
+    console.log(data);
+  };
+  console.log("tested");
+  return (
+    <div>
+      <button onClick={makeApiCall}>Test</button>
+    </div>
+  );
+
   return <div>test</div>;
 }
 //   // const type = decodeURIComponent(`${typeURI}`);

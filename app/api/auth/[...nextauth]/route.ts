@@ -64,6 +64,7 @@ const authOptions = {
         },
       },
       userinfo: "https://api.pathofexile.com/profile",
+      // stashinfo: "https://api.pathofexile.com/stash",
       checks: ["state", "pkce"],
       clientId: process.env.POE_CLIENT_ID,
       clientSecret: process.env.POE_CLIENT_SECRET,
@@ -85,8 +86,8 @@ const authOptions = {
       return token;
     },
     async session({ session, token }) {
-      console.log(`SESSION: ${JSON.stringify(session)} `);
       session.user = token;
+      console.log(`SESSION: ${JSON.stringify(session)} `);
       return session;
     },
   },
