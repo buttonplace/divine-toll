@@ -78,11 +78,11 @@ const authOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      console.log(`JWT: ${token} ${user}`);
+      console.log(`JWT: ${JSON.stringify(token)} `);
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      console.log(`SESSION: ${session} ${token}`);
+      console.log(`SESSION: ${JSON.stringify(session)} `);
       session.user = token;
       return session;
     },
