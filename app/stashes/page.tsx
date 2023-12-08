@@ -88,7 +88,7 @@ export default function TypePage() {
             index: v.index,
           };
         });
-        setStashes(data.stashes);
+        setStashes(st);
       }
       //ultaimtely, lets just grab all stash tabs that are
       //of correct type, i.e. currency, div cards, etc.
