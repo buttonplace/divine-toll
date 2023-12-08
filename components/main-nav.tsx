@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Icon, Icons } from "@/components/icons";
 import { MobileNav } from "@/components/mobile-nav";
+import { signIn, signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,12 +22,39 @@ interface MainNavProps {
   children?: React.ReactNode;
 }
 
+function AuthButton() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="">{session?.user?.name}</span>
+        <button
+          className="flex items-center space-x-2"
+          onClick={() => signOut()}
+        >
+          <span className="text-sm font-bold text-red-900">Logout</span>
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <button
+        className="flex items-center space-x-2"
+        onClick={() => signIn("poe")}
+      >
+        <span className="font-bold">Log in</span>
+      </button>
+    );
+  }
+}
+
 export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex grow gap-6  md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
         <span className="hidden font-serif font-bold sm:inline-block">
@@ -134,6 +162,7 @@ export function MainNav({ items, children }: MainNavProps) {
           More Info
         </Link>
       </nav>
+
       <button
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -144,6 +173,9 @@ export function MainNav({ items, children }: MainNavProps) {
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
       )}
+      <div className="ml-auto flex">
+        <AuthButton />
+      </div>
     </div>
   );
 }

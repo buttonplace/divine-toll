@@ -15,6 +15,9 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
+// import { SessionProvider } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import SessionProvider from "@/components/session-provider";
 
 import localFont from "next/font/local";
 
@@ -89,13 +92,16 @@ const serif = Cinzel_Decorative({
 
 interface RootLayoutProps {
   children: React.ReactNode;
+  // session: any;
 }
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+  children, // session,
 }: {
   children: React.ReactNode;
+  // session: JSX.Element;
 }) {
+  const session = await getServerSession();
   return (
     <html
       lang="en"
@@ -105,7 +111,8 @@ export default function RootLayout({
       <head />
       <body className="min-h-screen bg-background font-sans font-semibold antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <SessionProvider session={session}>{children}</SessionProvider>
+          {/* <SessionProvider session={session}>{children}</SessionProvider> */}
           <Analytics />
         </ThemeProvider>
       </body>

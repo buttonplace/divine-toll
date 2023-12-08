@@ -51,7 +51,7 @@ export default async function MainPage() {
                     "w-1/2 min-w-[13em]",
                   )}
                 >
-                  View our prices
+                  View some items
                 </Link>{" "}
               </div>
             </div>
