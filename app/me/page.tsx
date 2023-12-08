@@ -73,7 +73,7 @@ export default function TypePage() {
       if (data.status === 200) {
         console.log(data);
         console.log("STASH SUCCESS");
-        setStashes(JSON.stringify(data.stashes));
+        setStashes(JSON.stringify(data));
       }
     }
     getStashes();
@@ -81,7 +81,11 @@ export default function TypePage() {
   return (
     <div>
       {stashes != "" ? (
-        <div>You are logged in with AT {stashes}</div>
+        <>
+          <div>You are logged in with {stashes}</div>
+          <div>{stashes}</div>
+          <div>{JSON.stringify(stashes)}</div>
+        </>
       ) : (
         <div>you are not logged in</div>
       )}
