@@ -83,11 +83,17 @@ const authOptions = {
       console.log(`User: ${JSON.stringify(user)}`);
       console.log(`Account: ${JSON.stringify(account)}`);
       console.log(`Profile: ${JSON.stringify(profile)}`);
+      if (account?.accessToken) {
+        //if this exists, its the first time this has been called
+
+        token.accessToken = account.access_token;
+      }
       return token;
     },
     async session({ session, token }) {
       // session.user = token;
       console.log(`SESSION: ${JSON.stringify(session)} `);
+      console.log(`Access: ${JSON.stringify(token.accessToken)}`);
       return session;
     },
   },
