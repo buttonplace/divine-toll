@@ -7,11 +7,6 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/about/",
-        permanent: true,
-      },
-      {
-        source: "/about",
         destination: "/newleague/",
         permanent: true,
       },
