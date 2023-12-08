@@ -111,7 +111,7 @@ export default async function RootLayout({
       <head />
       <body className="min-h-screen bg-background font-sans font-semibold antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SessionProvider>{children}</SessionProvider>
+          <SessionProvider session={session}>{children}</SessionProvider>
           {/* <SessionProvider session={session}>{children}</SessionProvider> */}
           <Analytics />
         </ThemeProvider>
