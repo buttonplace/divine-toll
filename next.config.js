@@ -10,6 +10,11 @@ const nextConfig = {
         destination: "/about/",
         permanent: true,
       },
+      {
+        source: "/about",
+        destination: "/newleague/",
+        permanent: true,
+      },
     ];
   },
 };
