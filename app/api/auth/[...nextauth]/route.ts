@@ -83,7 +83,7 @@ const authOptions = {
       console.log(`User: ${JSON.stringify(user)}`);
       console.log(`Account: ${JSON.stringify(account)}`);
       console.log(`Profile: ${JSON.stringify(profile)}`);
-      if (account?.accessToken) {
+      if (account?.access_token) {
         //if this exists, its the first time this has been called
 
         token.accessToken = account.access_token;
