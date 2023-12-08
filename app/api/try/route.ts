@@ -10,8 +10,17 @@ export async function GET(request: NextRequest) {
     console.log("no session");
     return NextResponse.json({ json });
   } else {
-    const t = getToken({ req: request });
-    console.log(t);
+    const t = await getToken({
+      req: request,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
+    if (!t) {
+      console.log("no token from try route!");
+      return NextResponse.json({ json });
+    }
+    console.log("token from try route:");
+    const access = t.accessToken;
+    console.log(access);
     return NextResponse.json({ token: t, session: session, json: json });
   }
 
