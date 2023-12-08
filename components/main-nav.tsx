@@ -27,9 +27,15 @@ function AuthButton() {
 
   if (session) {
     return (
-      <button className="flex items-center space-x-2" onClick={() => signOut()}>
-        <span className="font-bold">Logged in as {session?.user?.name}</span>
-      </button>
+      <div className="flex items-center">
+        <span className="">{session?.user?.name}</span>
+        <button
+          className="flex items-center space-x-2"
+          onClick={() => signOut()}
+        >
+          <span className="text-sm font-bold text-red-900">Logout</span>
+        </button>
+      </div>
     );
   } else {
     return (

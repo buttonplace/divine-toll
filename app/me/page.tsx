@@ -75,6 +75,9 @@ export default function TypePage() {
         console.log("STASH SUCCESS");
         setStashes(JSON.stringify(data));
       }
+      //ultaimtely, lets just grab all stash tabs that are
+      //of correct type, i.e. currency, div cards, etc.
+      //then scan them and show a list of items that match
     }
     getStashes();
   }, []);
