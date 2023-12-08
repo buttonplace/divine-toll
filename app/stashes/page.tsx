@@ -78,9 +78,13 @@ export default function TypePage() {
       });
       const data = await res.json();
       if (data.status === 200) {
-        console.log(data);
+        if (data.stashes.length === 0) {
+          console.log("No stashes found");
+          return;
+        }
+        console.log(data.json);
         console.log("STASH SUCCESS");
-        const st = data.stashes.map((v: any) => {
+        const st = data.json.stashes.map((v: any) => {
           return {
             id: v.id,
             name: v.name,
@@ -95,8 +99,6 @@ export default function TypePage() {
       //then scan them and show a list of items that match
     }
     getStashes();
-    console.log("Stashes");
-    console.log(stashes);
   }, []);
   return (
     <div>
