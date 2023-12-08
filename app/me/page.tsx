@@ -57,19 +57,21 @@ import { NextRequest } from "next/server";
 //   }
 // };
 
-export default function TypePage() {
-  const makeApiCall = async () => {
-    const res = await fetch("/api/try", {
-      method: "POST",
-      body: JSON.stringify({ name: "test" }),
-    });
-    const data = await res.json();
-    console.log(data);
-  };
+export default async function TypePage() {
+  const res = await fetch("/api/try", {
+    method: "POST",
+    body: JSON.stringify({ name: "test" }),
+  });
+  const data = await res.json();
+  console.log(data);
   console.log("tested");
   return (
     <div>
-      <button onClick={makeApiCall}>Test</button>
+      {data.status == 200 ? (
+        <div>You are logged in with AT {data.token}</div>
+      ) : (
+        <div>you are not logged in</div>
+      )}
     </div>
   );
 

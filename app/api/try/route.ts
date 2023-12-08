@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
   const session = await getServerSession();
   if (!session) {
     console.log("no session");
-    return NextResponse.json({ json });
+    return NextResponse.json({ json, status: 403 });
   } else {
     const t = await getToken({
       req: request,
@@ -19,12 +19,18 @@ export async function POST(request: NextRequest) {
     });
     if (!t) {
       console.log("no token from try route!");
-      return NextResponse.json({ json });
+
+      return NextResponse.json({ json, status: 401 });
     }
     console.log("token from try route:");
     const access = t.accessToken;
     console.log(access);
-    return NextResponse.json({ token: t, session: session, json: json });
+    return NextResponse.json({
+      token: t,
+      session: session,
+      json: json,
+      status: 200,
+    });
   }
 
   console.log(json);
