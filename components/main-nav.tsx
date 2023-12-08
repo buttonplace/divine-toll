@@ -27,7 +27,7 @@ function AuthButton() {
 
   if (session) {
     return (
-      <div className="flex items-center">
+      <div className="flex items-center gap-6">
         <span className="">{session?.user?.name}</span>
         <button
           className="flex items-center space-x-2"
@@ -43,7 +43,7 @@ function AuthButton() {
         className="flex items-center space-x-2"
         onClick={() => signIn("poe")}
       >
-        <span className="font-bold">Login</span>
+        <span className="font-bold">Log in</span>
       </button>
     );
   }

@@ -59,8 +59,15 @@ import { use, useEffect, useState } from "react";
 //   }
 // };
 
+type Stash = {
+  id: string;
+  name: string;
+  type: string;
+  index: number;
+};
+
 export default function TypePage() {
-  const [stashes, setStashes] = useState("");
+  const [stashes, setStashes] = useState<Stash[]>([]);
 
   useEffect(() => {
     async function getStashes() {
@@ -73,7 +80,7 @@ export default function TypePage() {
       if (data.status === 200) {
         console.log(data);
         console.log("STASH SUCCESS");
-        setStashes(JSON.stringify(data));
+        setStashes(data.stashes);
       }
       //ultaimtely, lets just grab all stash tabs that are
       //of correct type, i.e. currency, div cards, etc.
@@ -83,11 +90,13 @@ export default function TypePage() {
   }, []);
   return (
     <div>
-      {stashes != "" ? (
+      {stashes.length > 0 ? (
         <>
-          <div>You are logged in with {stashes}</div>
-          <div>{stashes}</div>
-          <div>{JSON.stringify(stashes)}</div>
+          <ul>
+            {stashes.map((v) => {
+              return <li key={v.id}>{v.name}</li>;
+            })}
+          </ul>
         </>
       ) : (
         <div>you are not logged in</div>
