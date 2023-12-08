@@ -80,6 +80,14 @@ export default function TypePage() {
       if (data.status === 200) {
         console.log(data);
         console.log("STASH SUCCESS");
+        const st = data.stashes.map((v: any) => {
+          return {
+            id: v.id,
+            name: v.name,
+            type: v.type,
+            index: v.index,
+          };
+        });
         setStashes(data.stashes);
       }
       //ultaimtely, lets just grab all stash tabs that are
@@ -87,6 +95,8 @@ export default function TypePage() {
       //then scan them and show a list of items that match
     }
     getStashes();
+    console.log("Stashes");
+    console.log(stashes);
   }, []);
   return (
     <div>

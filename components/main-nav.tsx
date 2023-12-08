@@ -27,7 +27,7 @@ function AuthButton() {
 
   if (session) {
     return (
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3">
         <span className="">{session?.user?.name}</span>
         <button
           className="flex items-center space-x-2"
