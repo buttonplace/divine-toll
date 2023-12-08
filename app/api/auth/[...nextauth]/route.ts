@@ -60,6 +60,7 @@ const authOptions = {
           scope: "account:profile",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientId: process.env.POE_CLIENT_ID,
+          clientSecret: process.env.POE_CLIENT_SECRET,
         },
       },
       userinfo: "https://api.pathofexile.com/profile",
