@@ -22,12 +22,33 @@ interface MainNavProps {
   children?: React.ReactNode;
 }
 
+function AuthButton() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <button className="flex items-center space-x-2" onClick={() => signOut()}>
+        <span className="font-bold">Logged in as {session?.user?.name}</span>
+      </button>
+    );
+  } else {
+    return (
+      <button
+        className="flex items-center space-x-2"
+        onClick={() => signIn("poe")}
+      >
+        <span className="font-bold">Login</span>
+      </button>
+    );
+  }
+}
+
 export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex grow gap-6  md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <Icons.logo />
         <span className="hidden font-serif font-bold sm:inline-block">
@@ -134,8 +155,8 @@ export function MainNav({ items, children }: MainNavProps) {
           />
           More Info
         </Link>
-        {/* <AuthButton /> */}
       </nav>
+
       <button
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -146,6 +167,9 @@ export function MainNav({ items, children }: MainNavProps) {
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
       )}
+      <div className="ml-auto flex">
+        <AuthButton />
+      </div>
     </div>
   );
 }

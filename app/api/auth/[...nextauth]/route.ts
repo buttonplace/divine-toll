@@ -48,7 +48,7 @@ const authOptions = {
         url: "https://www.pathofexile.com/oauth/authorize",
         params: {
           grant_type: "authorization_code",
-          scope: "account:profile",
+          scope: "account:profile account:stashes",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientID: process.env.POE_CLIENT_ID,
         },
@@ -57,7 +57,7 @@ const authOptions = {
         url: "https://www.pathofexile.com/oauth/token",
         params: {
           grant_type: "authorization_code",
-          scope: "account:profile",
+          scope: "account:profile account:stashes",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientId: process.env.POE_CLIENT_ID,
           clientSecret: process.env.POE_CLIENT_SECRET,
@@ -76,6 +76,17 @@ const authOptions = {
       },
     } satisfies OAuthConfig<any>,
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      console.log(`JWT: ${token} ${user}`);
+      return { ...token, ...user };
+    },
+    async session({ session, token }) {
+      console.log(`SESSION: ${session} ${token}`);
+      session.user = token;
+      return session;
+    },
+  },
 } satisfies NextAuthOptions;
 
 const handler = NextAuth(authOptions);
