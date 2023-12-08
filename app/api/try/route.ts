@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     console.log("token from try route:");
     const access = t.accessToken;
     console.log(access);
-    const data = await fetch("api.pathofexile.com/stash/Standard", {
+    const data = await fetch("https://api.pathofexile.com/stash/Standard", {
       headers: {
         Authorization: `Bearer ${access}`,
         "User-Agent": "OAuth divinetoll/1.2 (contact:teatreydev@gmail.com)",
