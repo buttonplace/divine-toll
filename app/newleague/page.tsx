@@ -27,7 +27,7 @@ export default async function MainPage() {
           </p>
           <p className="max-w-[42rem] font-sans font-light leading-normal text-muted-foreground sm:text-sm sm:leading-8">
             If you want to explore the site, and you understand{" "}
-            <span className="font-bold text-red-600">NONE</span> of the data is
+            <span className="font-bold text-red-800">NONE</span> of the data is
             up to date, you can click{" "}
             <Link href="/about" className="italic underline">
               here
