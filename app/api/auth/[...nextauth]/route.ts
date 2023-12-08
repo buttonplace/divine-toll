@@ -86,7 +86,7 @@ const authOptions = {
       return token;
     },
     async session({ session, token }) {
-      session.user = token;
+      // session.user = token;
       console.log(`SESSION: ${JSON.stringify(session)} `);
       return session;
     },
