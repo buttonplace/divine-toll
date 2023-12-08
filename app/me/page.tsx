@@ -7,7 +7,7 @@
 // import { Icons } from "@/components/icons";
 // import Image from "next/image";
 // import { Item } from "types";
-"use client";
+// "use client";
 import { NextRequest } from "next/server";
 
 // import { getToken } from "next-auth/jwt";
