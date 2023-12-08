@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   } else {
     const t = getToken({ req: request });
     console.log(t);
-    return NextResponse.json({ json, session, t });
+    return NextResponse.json({ token: t, session: session, json: json });
   }
 
   console.log(json);
