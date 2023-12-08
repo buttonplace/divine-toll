@@ -79,10 +79,10 @@ const authOptions = {
   ],
   callbacks: {
     async jwt({ token, user, account, profile }) {
-      console.log(token);
-      console.log(user);
-      console.log(account);
-      console.log(profile);
+      console.log(`Token: ${JSON.stringify(token)}`);
+      console.log(`User: ${JSON.stringify(user)}`);
+      console.log(`Account: ${JSON.stringify(account)}`);
+      console.log(`Profile: ${JSON.stringify(profile)}`);
       return token;
     },
     async session({ session, token }) {
