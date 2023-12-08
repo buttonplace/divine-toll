@@ -25,10 +25,14 @@ export async function POST(request: NextRequest) {
     const access = t.accessToken;
     console.log(access);
     const data = await fetch("https://api.pathofexile.com/stash/Standard", {
+      method: "GET",
       headers: {
         Authorization: `Bearer ${access}`,
         "User-Agent": "OAuth divinetoll/1.2 (contact:teatreydev@gmail.com)",
       },
+    }).catch((e) => {
+      console.log(e);
+      return NextResponse.json({ status: 500 });
     });
     const json = await data.json();
     console.log(json);
