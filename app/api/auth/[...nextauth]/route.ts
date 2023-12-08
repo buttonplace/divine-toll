@@ -77,9 +77,11 @@ const authOptions = {
     } satisfies OAuthConfig<any>,
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      console.log(`JWT: ${JSON.stringify(token)} `);
-      return { ...token, ...user };
+    async jwt({ token, user, account, profile }) {
+      console.log(token);
+      console.log(user);
+      console.log(account);
+      console.log(profile);
     },
     async session({ session, token }) {
       console.log(`SESSION: ${JSON.stringify(session)} `);
