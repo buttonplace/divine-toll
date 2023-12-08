@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { getSession } from "next-auth/react";
 
-export async function GET(request: NextRequest) {
+export async function POST(request: NextRequest) {
+  console.log(request.body);
   console.log("TRYING!");
   const data = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const json = await data.json();
