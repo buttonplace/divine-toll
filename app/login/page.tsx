@@ -43,20 +43,7 @@ function AuthButton() {
 type Props = {
   params: { typeURI: string };
 };
-export default async function TypePage({ params: { typeURI } }: Props) {
-  // const type = decodeURIComponent(`${typeURI}`);
-  // // console.log(type);
-  // const divine = await getDivine();
-  // const items: Item[] = await prisma.item.findMany({
-  //   where: {
-  //     type: type,
-  //     ignored: false,
-  //   },
-  //   orderBy: {
-  //     stashIndex: "asc",
-  //   },
-  // });
-
+export default function LoginPage() {
   return (
     <div>
       <AuthButton />
