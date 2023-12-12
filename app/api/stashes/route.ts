@@ -39,22 +39,23 @@ export async function POST(request: NextRequest) {
 
     console.log(json.stashes);
 
-    json.stashes.forEach(async (stash: any) => {
-      console.log(`trying ${stash.id}`);
-      const stashData = await fetch(
-        "https://api.pathofexile.com/stash/Affliction/" + stash.id,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${access}`,
-            "User-Agent": "OAuth divinetoll/1.2 (contact:teatreydev@gmail.com)",
-          },
+    // json.stashes.forEach(async (stash: any) => {
+    const stash = json.stashes[0];
+    console.log(`trying ${stash.id}`);
+    const stashData = await fetch(
+      "https://api.pathofexile.com/stash/Affliction/" + stash.id,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${access}`,
+          "User-Agent": "OAuth divinetoll/1.2 (contact:teatreydev@gmail.com)",
         },
-      );
-      const stashJson = await stashData.json();
-      console.log(stash.id + ":");
-      console.log(stashJson);
-    });
+      },
+    );
+    const stashJson = await stashData.json();
+    console.log(stash.id + ":");
+    console.log(stashJson);
+    // });
 
     console.log(json);
     return NextResponse.json({
