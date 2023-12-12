@@ -87,11 +87,11 @@ export const aboutConfig: AboutConfig = {
       icon: "misc",
       items: [
         { title: "Miscellaneous", href: "misc", icon: "misc" },
-        {
-          title: "Incubators",
-          href: "incubator",
-          icon: "incubator",
-        },
+        // {
+        //   title: "Incubators",
+        //   href: "incubator",
+        //   icon: "incubator",
+        // },
         {
           title: "Calalysts",
           href: "catalyst",

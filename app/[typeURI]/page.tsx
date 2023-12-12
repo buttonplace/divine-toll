@@ -102,8 +102,8 @@ export default async function TypePage({ params: { typeURI } }: Props) {
         {type === "essence" && (
           <Card className="bg-yellow-600">
             <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
-              Screaming tier essences are rarely traded and are therefore
-              incredibly volatile. They are ignored on this page.
+              Low tier essences are rarely traded and are therefore incredibly
+              volatile. They are ignored on this page.
             </CardContent>
           </Card>
         )}
