@@ -103,7 +103,7 @@ export default async function TypePage({ params: { typeURI } }: Props) {
           <Card className="bg-yellow-600">
             <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
               Screaming tier essences are rarely traded and are therefore
-              incredibly volatile. They will be ignored in an update soon.
+              incredibly volatile. They are ignored on this page.
             </CardContent>
           </Card>
         )}
@@ -111,7 +111,7 @@ export default async function TypePage({ params: { typeURI } }: Props) {
           <Card className="bg-yellow-600">
             <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
               Low tier oils are rarely traded and are therefore incredibly
-              volatile. They will be ignored in an update soon.
+              volatile. They are ignored on this page.
             </CardContent>
           </Card>
         )}
@@ -119,7 +119,7 @@ export default async function TypePage({ params: { typeURI } }: Props) {
           <Card className="bg-yellow-600">
             <CardContent className="md:text-md p-1 text-xs sm:text-sm ">
               Cheap incubators are rarely traded and are therefore incredibly
-              volatile. They will be ignored in an update soon.
+              volatile. They are ignored on this page.
             </CardContent>
           </Card>
         )}
