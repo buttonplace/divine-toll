@@ -72,7 +72,7 @@ export default function TypePage() {
   useEffect(() => {
     async function getStashes() {
       console.log("Trying to fetch stashes");
-      const res = await fetch("/api/try", {
+      const res = await fetch("/api/stashes", {
         method: "POST",
         body: JSON.stringify({ name: "test" }),
       });
