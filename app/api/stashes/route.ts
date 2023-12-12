@@ -37,7 +37,10 @@ export async function POST(request: NextRequest) {
 
     const json = await data.json();
 
+    console.log(json.stashes);
+
     json.stashes.forEach(async (stash: any) => {
+      console.log(`trying ${stash.id}`);
       const stashData = await fetch(
         "https://api.pathofexile.com/stash/Affliction/" + stash.id,
         {
