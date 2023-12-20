@@ -19,7 +19,7 @@ const fetchStashes = async (setStashes: Function) => {
     const fs = data.stashes.filter((v: any) => {
       if (
         v.type !== "CurrencyStash" &&
-        v.type !== "DivinationCardStash" &&
+        // v.type !== "DivinationCardStash" &&
         v.type !== "FragmentStash" &&
         // v.type !== "MapStash" &&
         v.type !== "EssenceStash" &&
