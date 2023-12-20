@@ -300,24 +300,24 @@ export default function NextTable({ data }: NextTableProps) {
         column: "name",
         direction: "ascending",
       }}
-      onSortChange={(items, sortDescriptor) => {
-        return {
-          items: items.sort((a, b) => {
-            let first = a[sortDescriptor.column];
-            let second = b[sortDescriptor.column];
-            let cmp =
-              (parseInt(first) || first) < (parseInt(second) || second)
-                ? -1
-                : 1;
+      // onSortChange={(items, sortDescriptor) => {
+      //   return {
+      //     items: items.sort((a, b) => {
+      //       let first = a[sortDescriptor.column];
+      //       let second = b[sortDescriptor.column];
+      //       let cmp =
+      //         (parseInt(first) || first) < (parseInt(second) || second)
+      //           ? -1
+      //           : 1;
 
-            if (sortDescriptor.direction === "descending") {
-              cmp *= -1;
-            }
+      //       if (sortDescriptor.direction === "descending") {
+      //         cmp *= -1;
+      //       }
 
-            return cmp;
-          }),
-        };
-      }}
+      //       return cmp;
+      //     }),
+      //   };
+      // }}
     >
       <TableHeader>
         <TableColumn key="name" allowsSorting>
@@ -355,7 +355,7 @@ export default function NextTable({ data }: NextTableProps) {
 
       <TableBody items={data}>
         {(item) => (
-          <TableRow key={item.key}>
+          <TableRow key={item.id}>
             {(columnKey) => (
               <TableCell>{getKeyValue(item, columnKey)}</TableCell>
             )}

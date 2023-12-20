@@ -13,14 +13,14 @@ import { ColumnDef, Table } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/data-table";
 import DivineRate from "@/components/divine-rate";
 import { getDivine } from "@/lib/serverutils";
-import { iconRoute } from "@/config/icon-route";
+// import { iconRoute } from "@/config/icon-route";
 import { Card, CardContent } from "@/components/ui/card";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
 
-import NextTable from "@/components/nextui-table";
-import NewTable from "@/components/new-table/table";
+// import NextTable from "@/components/nextui-table";
+// import NewTable from "@/components/new-table/table";
 
 type Props = {
   params: { typeURI: string };
@@ -130,7 +130,7 @@ export default async function TypePage({ params: { typeURI } }: Props) {
         )}
       </div>
       {/* <NextTable type={type} /> */}
-      <NewTable />
+      {/* <NewTable /> */}
       {/* <NextTable data={data} /> */}
 
       {/* {data.length > 0 ? (

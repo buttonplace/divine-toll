@@ -79,7 +79,7 @@ const StashScanner = () => {
       return;
     }
 
-    let matches = [];
+    let matches: any = [];
     if (jStash.type == "FragmentStash") {
       const dtFrags = await fetch("/api/scanner/fragment");
       const dtScarabs = await fetch("/api/scanner/scarab");
@@ -113,7 +113,7 @@ const StashScanner = () => {
     }
 
     const fitems = data.items.filter((v: any) => {
-      if (matches.some((item) => item.name == v.typeLine)) {
+      if (matches.some((item: any) => item.name == v.typeLine)) {
         return true;
       } else {
         return false;
@@ -121,7 +121,7 @@ const StashScanner = () => {
     });
 
     const items = fitems.map((v: any) => {
-      const dtItem = matches.find((item) => item.name == v.typeLine);
+      const dtItem = matches.find((item: any) => item.name == v.typeLine);
       return {
         name: v.typeLine,
         count: v.stackSize,

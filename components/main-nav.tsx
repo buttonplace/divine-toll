@@ -257,12 +257,12 @@ export function MainNavNew() {
                 href={item.href}
                 size="lg"
               >
-                <Image
+                {/* <Image
                   src={item.icon}
                   height={32}
                   width={32}
                   alt={item.title}
-                />
+                /> */}
                 {item.title}
               </Link>
             </NavbarMenuItem>

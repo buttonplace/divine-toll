@@ -3,8 +3,9 @@ import Link from "next/link";
 import { aboutConfig } from "@/config/about";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { MainNav } from "@/components/main-nav";
+import { MainNavNew } from "@/components/main-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { MainNav } from "@/components/main-nav-old";
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
