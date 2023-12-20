@@ -26,6 +26,14 @@ export type DivinePrices = {
   value: number;
 };
 
+type Stash = {
+  id: string;
+  name: string;
+  type: string;
+  index: number;
+  color: string;
+};
+
 export type ItemWithPrices = Prisma.ItemGetPayload<{
   include: { currentChaos: true; currentDivine: true };
 }>;
@@ -78,4 +86,29 @@ export type SiteConfig = {
 
 export type AboutConfig = {
   mainNav: MainNavItem[];
+};
+
+export type StashItem = {
+  id: string;
+  name: string;
+  count: number;
+  stashId: string;
+  percentage: number;
+  icon: Icon;
+};
+
+export type ItemTypes =
+  | "scarab"
+  | "fragment"
+  | "basic currency"
+  | "exotic currency"
+  | "essence"
+  | "breach"
+  | "delve"
+  | "oil"
+  | "catalyst";
+
+export type StashMap = {
+  scarab: "Fragment Stash";
+  UltimatumStash: "catalyst";
 };
