@@ -173,7 +173,7 @@ export default async function MainPage() {
             If you have any questions, suggestions, or want to contribute,
             contact me at{" "}
             <a className="underline" href="mailto:teatreydev@gmail.com.com">
-              TeaTreyDev@divinetoll.com
+              TeaTreyDev@gmail.com
             </a>
           </h2>
           <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
