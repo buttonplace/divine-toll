@@ -44,6 +44,7 @@ export type Payment = {
 };
 
 export type TableItem = {
+  id: number;
   name: string;
   icon: string;
   divineRateString: string;

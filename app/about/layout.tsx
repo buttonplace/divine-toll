@@ -3,7 +3,7 @@ import Link from "next/link";
 import { aboutConfig } from "@/config/about";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { MainNav } from "@/components/main-nav";
+import { MainNav } from "@/components/main-nav-old";
 import { SiteFooter } from "@/components/site-footer";
 import { getDivine } from "@/lib/serverutils";
 import MainNavNew from "@/components/navigation/main-nav";

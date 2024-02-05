@@ -13,11 +13,14 @@ import { ColumnDef, Table } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/data-table";
 import DivineRate from "@/components/divine-rate";
 import { getDivine } from "@/lib/serverutils";
-import { iconRoute } from "@/config/icon-route";
+// import { iconRoute } from "@/config/icon-route";
 import { Card, CardContent } from "@/components/ui/card";
 const NoSSR = dynamic(() => import("@/components/data-table/data-table"), {
   ssr: false,
 });
+
+// import NextTable from "@/components/nextui-table";
+// import NewTable from "@/components/new-table/table";
 
 type Props = {
   params: { typeURI: string };
@@ -54,13 +57,14 @@ export default async function TypePage({ params: { typeURI } }: Props) {
       </section>
     );
   }
-  const data: TableItem[] = items.map((item) => {
+  const data: TableItem[] = items.map((item, index) => {
     const chaosRate: number =
       item.divineTollChaosNumerator / item.divineTollChaosDenominator;
     const divineRate: number =
       item.divineTollDivineNumerator / item.divineTollDivineDenominator;
 
     return {
+      id: index,
       name: item.name,
       icon: item.icon,
       divineRateString: `${item.divineTollDivineNumerator} / ${item.divineTollDivineDenominator}`,
@@ -82,6 +86,7 @@ export default async function TypePage({ params: { typeURI } }: Props) {
       divineRate: divine,
     };
   });
+
   return (
     <div>
       <div className="flex flex-col  items-center justify-center pt-5">
@@ -124,12 +129,16 @@ export default async function TypePage({ params: { typeURI } }: Props) {
           </Card>
         )}
       </div>
-      {data.length > 0 ? (
+      {/* <NextTable type={type} /> */}
+      {/* <NewTable /> */}
+      {/* <NextTable data={data} /> */}
+
+      {/* {data.length > 0 ? (
         <DataTable data={data} columns={columns} />
       ) : (
         // <DataTable data={data} columns={columns} />
         <div>No items found.</div>
-      )}
+      )} */}
     </div>
   );
 }

@@ -18,7 +18,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 // import { SessionProvider } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/session-provider";
-import { NextUIProvider } from "@nextui-org/react";
 
 import localFont from "next/font/local";
 import { Providers } from "@/components/providers";
@@ -111,13 +110,11 @@ export default async function RootLayout({
     >
       <head />
       <body className="min-h-screen bg-background font-sans font-semibold antialiased">
-        <Providers>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <SessionProvider session={session}>{children}</SessionProvider>
-            {/* <SessionProvider session={session}>{children}</SessionProvider> */}
-            <Analytics />
-          </ThemeProvider>
-        </Providers>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SessionProvider session={session}>{children}</SessionProvider>
+          {/* <SessionProvider session={session}>{children}</SessionProvider> */}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

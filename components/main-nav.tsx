@@ -1,181 +1,274 @@
 "use client";
-
-import * as React from "react";
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-import { MainNavItem, NavItem } from "types";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import { Icon, Icons } from "@/components/icons";
-import { MobileNav } from "@/components/mobile-nav";
-import { signIn, signOut, useSession } from "next-auth/react";
+import React from "react";
 import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import Image from "next/image";
-import { iconRoute } from "@/config/icon-route";
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@nextui-org/react";
+import Image from "next/image.js";
+import {
+  ChevronDown,
+  Lock,
+  Activity,
+  Flash,
+  Server,
+  TagUser,
+  Scale,
+} from "./qq.jsx";
+import { Icon, Icons } from "@/components/icons";
+import { useState } from "react";
+// import { AcmeLogo } from "./AcmeLogo.jsx";
 
-interface MainNavProps {
-  items?: MainNavItem[];
-  children?: React.ReactNode;
-}
+export function MainNavNew() {
+  const icons = {
+    delve: <Icons.delve />,
+    chevron: (
+      <ChevronDown fill="currentColor" size={16} height={16} width={16} />
+    ),
+    scale: (
+      <Scale
+        className="text-warning"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    lock: (
+      <Lock
+        className="text-success"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    activity: (
+      <Activity
+        className="text-secondary"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    flash: (
+      <Flash
+        className="text-primary"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    server: (
+      <Server
+        className="text-success"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+    user: (
+      <TagUser
+        className="text-danger"
+        fill="currentColor"
+        size={30}
+        height={30}
+        width={30}
+      />
+    ),
+  };
 
-function AuthButton() {
-  const { data: session } = useSession();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  if (session) {
-    return (
-      <div className="flex items-center gap-2">
-        <span className="">{session?.user?.name}</span>
-        <button
-          className="flex items-center space-x-2"
-          onClick={() => signOut()}
-        >
-          <span className="text-sm font-bold text-red-900">Logout</span>
-        </button>
-      </div>
-    );
-  } else {
-    return (
-      <button
-        className="flex items-center space-x-2"
-        onClick={() => signIn("poe")}
-      >
-        <span className="font-bold">Log in</span>
-      </button>
-    );
-  }
-}
-
-export function MainNav({ items, children }: MainNavProps) {
-  const segment = useSelectedLayoutSegment();
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
+  const items = [
+    {
+      title: "Currency",
+      href: "javascript:;",
+      icon: icons.delve,
+      subs: [
+        {
+          title: "Exotic Currency",
+          href: "javascript:;",
+          icon: icons.delve,
+        },
+      ],
+    },
+    {
+      title: "Home",
+      href: "/",
+      icon: "/images/medbell.png",
+    },
+    {
+      title: "Home",
+      href: "/",
+      icon: "/images/delve.png",
+    },
+    {
+      title: "Home",
+      href: "/",
+      icon: "/images/medbell.png",
+    },
+  ];
 
   return (
-    <div className="flex grow gap-6  md:gap-10">
-      <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <Icons.logo />
-        <span className="hidden font-serif font-bold sm:inline-block">
-          {siteConfig.name}
-        </span>
-      </Link>
-      <nav className="hidden gap-6 md:flex">
-        {items &&
-          items.map((item, index) => {
-            //is the item a list?
-            if (item.items.length > 1) {
-              return (
-                <DropdownMenu key={item.title}>
-                  <DropdownMenuTrigger
-                    className={cn(
-                      "flex flex-col items-center font-sans text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                      item.items[0].href.startsWith(`/${segment}`)
-                        ? "text-foreground"
-                        : "text-foreground/60",
-                      item.items[0].disabled && "cursor-not-allowed opacity-80",
-                    )}
-                  >
-                    <Image
-                      src={`/images/${item.icon}.png` || `images/medbell.png`}
-                      alt={item.title || "Item icon"}
-                      width={32}
-                      height={32}
-                      className=""
-                    />
-                    {item.title}
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="mt-2 flex flex-col rounded bg-muted">
-                    {item.items.map((subitem: NavItem, index: number) => (
-                      <Link
-                        key={index}
-                        href={`/${encodeURIComponent(subitem.href)}`}
-                        className={cn(
-                          "flex items-center p-2 font-sans text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                          subitem.href.startsWith(`/${segment}`)
-                            ? "text-foreground"
-                            : "text-foreground/60",
-                          subitem.disabled && "cursor-not-allowed opacity-80",
-                        )}
-                      >
-                        <Image
-                          src={
-                            `/images/${subitem.icon}.png` ||
-                            `images/medbell.png`
-                          }
-                          alt={subitem.title || "Item icon"}
-                          width={32}
-                          height={32}
-                          className=""
-                        />
-                        {subitem.title}{" "}
-                      </Link>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              );
-            } else {
-              //its not a list
-              return (
-                <Link
-                  key={index}
-                  href={`/${encodeURIComponent(item.items[0].href)}`}
-                  className={cn(
-                    "flex flex-col  items-center font-sans text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                    item.items[0].href.startsWith(`/${segment}`)
-                      ? "text-foreground"
-                      : "text-foreground/60",
-                    item.items[0].disabled && "cursor-not-allowed opacity-80",
-                  )}
-                >
-                  <Image
-                    src={
-                      `/images/${item.items[0].icon}.png` ||
-                      `images/medbell.png`
-                    }
-                    alt={item.items[0].title || "Item icon"}
-                    width={32}
-                    height={32}
-                    className=""
-                  />
-                  {item.items[0].title}
-                </Link>
-              );
-              //end not a list
-            }
-          })}
-        <Link
-          key={"info"}
-          href={`/about/information`}
-          className={cn(
-            "flex flex-col  items-center font-sans text-lg font-medium text-foreground/60 transition-colors hover:text-foreground/80 sm:text-sm",
-          )}
-        >
-          <Image
-            src={`/images/medbell.png`}
-            alt={"Divine Toll Icon"}
-            width={32}
-            height={32}
-            className=""
-          />
-          More Info
-        </Link>
-      </nav>
-
-      <button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-      >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
-        <span className="font-bold">Menu</span>
-      </button>
-      {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
-      )}
-      <div className="ml-auto flex">
-        <AuthButton />
-      </div>
-    </div>
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <Link href="/">
+            <Icons.logo />
+            <p className="p-2 font-serif font-bold text-inherit">Divine Toll</p>
+          </Link>
+        </NavbarBrand>
+      </NavbarContent>
+      <NavbarContent className="hidden gap-4 sm:flex" justify="center">
+        <NavbarItem>
+          <Link className="text-large font-bold" href="#">
+            Features
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#" className="">
+            Customers
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#">
+            <Icons.currency />
+            Currency
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent className="hidden gap-4 sm:flex" justify="center">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <Dropdown>
+          <NavbarItem>
+            <DropdownTrigger>
+              <Link href="javascript:;">
+                <Icons.currency />
+                Currency
+              </Link>
+            </DropdownTrigger>
+          </NavbarItem>
+          <DropdownMenu
+            aria-label="ACME features"
+            className="w-[340px]"
+            itemClasses={{
+              base: "gap-4",
+            }}
+          >
+            <DropdownItem
+              key="autoscaling"
+              startContent={icons.scale}
+              href="/items/delve"
+            >
+              {/* <Link href="/items/delve">Text</Link> */}
+            </DropdownItem>
+            <DropdownItem key="usage_metrics" startContent={icons.delve}>
+              Usage Metrics
+            </DropdownItem>
+            <DropdownItem key="production_ready" startContent={icons.flash}>
+              Production Ready
+            </DropdownItem>
+            <DropdownItem key="99_uptime" startContent={icons.server}>
+              +99% Uptime
+            </DropdownItem>
+            <DropdownItem
+              key="supreme_support"
+              //   description="Overcome any challenge with a supporting team ready to respond."
+              startContent={icons.user}
+            >
+              +Supreme Support
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        {/* <NavbarItem isActive>
+          <Link href="#" aria-current="page">
+            Customers
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color="primary" href="#" variant="flat">
+            Sign Up
+          </Button>
+        </NavbarItem>
+        <NavbarItem isActive>
+          <Link href="#" aria-current="page">
+            Customers
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Integrations
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <NavbarItem className="hidden lg:flex">
+          <Link href="#">Login</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Button as={Link} color="primary" href="#" variant="flat">
+            Sign Up
+          </Button>
+        </NavbarItem>
+       */}
+        <NavbarMenu>
+          {items.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2
+                    ? "primary"
+                    : index === items.length - 1
+                    ? "danger"
+                    : "foreground"
+                }
+                className="w-full"
+                href={item.href}
+                size="lg"
+              >
+                {/* <Image
+                  src={item.icon}
+                  height={32}
+                  width={32}
+                  alt={item.title}
+                /> */}
+                {item.title}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </NavbarContent>
+    </Navbar>
   );
 }
