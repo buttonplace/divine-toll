@@ -83,6 +83,22 @@ export const aboutConfig: AboutConfig = {
       ],
     },
     {
+      title: "Necropolis",
+      icon: "allflame",
+      items: [
+        {
+          title: "Coffin",
+          href: "coffin",
+          icon: "coffin",
+        },
+        {
+          title: "Allflame",
+          href: "allflame",
+          icon: "allflame",
+        },
+      ],
+    },
+    {
       title: "Other",
       icon: "misc",
       items: [

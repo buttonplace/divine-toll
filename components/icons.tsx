@@ -97,6 +97,17 @@ export const Icons = {
       height={32}
     />
   ),
+  coffin: () => (
+    <Image src="/images/coffin.png" alt="Coffin Icon" width={32} height={32} />
+  ),
+  allflame: () => (
+    <Image
+      src="/images/allflame.png"
+      alt="Coffin Icon"
+      width={32}
+      height={32}
+    />
+  ),
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,

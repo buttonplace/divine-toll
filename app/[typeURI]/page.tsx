@@ -61,7 +61,9 @@ export default async function TypePage({ params: { typeURI } }: Props) {
       item.divineTollDivineNumerator / item.divineTollDivineDenominator;
 
     return {
-      name: item.name,
+      name: item.name.includes("Allflame Ember of")
+        ? item.name.replace("Allflame Ember of", "")
+        : item.name,
       icon: item.icon,
       divineRateString: `${item.divineTollDivineNumerator} / ${item.divineTollDivineDenominator}`,
       divineRateValue: divineRate,
