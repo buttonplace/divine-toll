@@ -44,7 +44,7 @@ export const getDivine = cache(async (): Promise<number> => {
         2,
     );
   }
-  if (item.ninjaChaos) {
+  if (item.ninjaChaos != -1) {
     return Math.round(item.ninjaChaos);
   }
   if (item.divineTollChaosNumerator && item.divineTollChaosDenominator) {

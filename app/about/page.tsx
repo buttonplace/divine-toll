@@ -20,6 +20,9 @@ export default async function MainPage() {
           <h1 className="text-back flex items-center justify-center font-serif text-3xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="z-10">Divine Toll</span>{" "}
           </h1>
+          <h1 className="text-back flex items-center justify-center font-serif text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
+            <span className="z-10 -mt-4 text-sky-600">Necropolis</span>{" "}
+          </h1>
           <p className="max-w-[42rem] font-sans font-light leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             A price index for the Path of Exile Divine Orb exchange.
           </p>
