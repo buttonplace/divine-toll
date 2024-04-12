@@ -82,6 +82,9 @@ export default async function TypePage({ params: { typeURI } }: Props) {
       divineVariance: item.divineTollDivineVariance,
       chaosVariance: item.divineTollChaosVariation,
       divineRate: divine,
+      impliedRateValue:
+        (item.divineTollDivineNumerator * divineRate) /
+        item.divineTollDivineDenominator,
     };
   });
   return (

@@ -44,7 +44,7 @@ export default async function MainPage() {
               <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Divine Toll pulls pricing data from the official Divine Orb bulk
                 exchange and uses that data to calculate the market value of
-                hundreds of commonly traded items.{" "}
+                over 700 commonly traded items.{" "}
               </h2>
               <div className="px-4 py-2">
                 <Link
@@ -86,7 +86,7 @@ export default async function MainPage() {
               <h2 className="md:text-md px-4 py-2 text-sm font-medium text-muted-foreground">
                 Divine Toll pulls pricing data from the official Divine Orb bulk
                 exchange and uses that data to calculate the market value of
-                hundreds of commonly traded items.{" "}
+                over 700 of commonly traded items.{" "}
               </h2>
               <div className="px-4 py-2">
                 <h5 className="text-xs font-light text-muted-foreground/90">
