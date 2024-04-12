@@ -54,19 +54,19 @@ const Confidence = ({ confidence }: Props) => {
       >
         {confidence > 90 && (
           <Link href="/about/information#confidence">
-            The rate has been marked as high confidence.
+            The rate has been marked as high confidence.{" "}
             <span className="text-primary underline"> Learn More</span>
           </Link>
         )}
         {confidence > 60 && confidence <= 90 && (
           <Link href="/about/information#confidence">
-            The rate has been marked as medium confidence.
+            The rate has been marked as medium confidence.{" "}
             <span className="text-primary underline"> Learn More</span>
           </Link>
         )}
         {confidence <= 60 && (
           <Link href="/about/information#confidence">
-            Low confidence.
+            Low confidence.{" "}
             <span className="text-primary underline"> Learn More</span>
           </Link>
         )}

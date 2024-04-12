@@ -208,7 +208,7 @@ export const columns: ColumnDef<TableItem, any>[] = [
           <div>
             {
               "The difference between the Bulk Price and the Individual Price, i.e. how much you'd lose by selling to resellers."
-            }
+            }{" "}
             <Link className="underline" href="/about/information#arbitrage">
               Learn more
             </Link>
