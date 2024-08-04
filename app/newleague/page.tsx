@@ -22,7 +22,7 @@ export default async function MainPage() {
           </h1>
           <p className="max-w-[42rem] font-sans font-light leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             Divine Toll is currently in the process of collecting data for the
-            new Necropolis league. Please check back later! We will be back in a
+            new Settlers league. Please check back later! We will be back in a
             couple of days.
           </p>
           <p className="max-w-[42rem] font-sans font-light leading-normal text-muted-foreground sm:text-sm sm:leading-8">

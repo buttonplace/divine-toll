@@ -1,4 +1,3 @@
-import { Icons } from "@/components/icons";
 import { AboutConfig } from "types";
 
 export const aboutConfig: AboutConfig = {
@@ -79,22 +78,6 @@ export const aboutConfig: AboutConfig = {
           title: "Oils",
           href: "oil",
           icon: "oil",
-        },
-      ],
-    },
-    {
-      title: "Necropolis",
-      icon: "allflame",
-      items: [
-        {
-          title: "Coffin",
-          href: "coffin",
-          icon: "coffin",
-        },
-        {
-          title: "Allflame",
-          href: "allflame",
-          icon: "allflame",
         },
       ],
     },
