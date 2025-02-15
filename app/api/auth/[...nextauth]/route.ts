@@ -1,6 +1,5 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import { OAuthConfig } from "next-auth/providers";
-import { EndpointHandler } from "next-auth/providers";
 
 // const authOptions = {
 //   providers: [
@@ -57,7 +56,7 @@ const authOptions = {
         url: "https://www.pathofexile.com/oauth/token",
         params: {
           grant_type: "authorization_code",
-          scope: "account:profile account:stashes",
+          scope: "account:profile account:stashes service:psapi",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientId: process.env.POE_CLIENT_ID,
           clientSecret: process.env.POE_CLIENT_SECRET,
