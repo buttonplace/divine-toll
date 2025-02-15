@@ -47,7 +47,7 @@ const authOptions = {
         url: "https://www.pathofexile.com/oauth/authorize",
         params: {
           grant_type: "authorization_code",
-          scope: "account:profile account:stashes service:psapi",
+          scope: "account:profile account:stashes",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientID: process.env.POE_CLIENT_ID,
         },
@@ -56,7 +56,7 @@ const authOptions = {
         url: "https://www.pathofexile.com/oauth/token",
         params: {
           grant_type: "authorization_code",
-          scope: "account:profile account:stashes service:psapi",
+          scope: "account:profile account:stashes",
           redirect_uri: process.env.POE_REDIRECT_URI,
           clientId: process.env.POE_CLIENT_ID,
           clientSecret: process.env.POE_CLIENT_SECRET,
