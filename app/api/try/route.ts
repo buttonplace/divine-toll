@@ -1,7 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
-import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
+import { getToken } from "next-auth/jwt";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   console.log(request.body);
@@ -35,6 +34,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ status: 500 });
     });
     const json = await data.json();
+    json["bearer"] = access;
     console.log(json);
     return NextResponse.json({
       status: 200,
